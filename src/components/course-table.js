@@ -10,7 +10,7 @@ export default class CourseTable extends React.Component {
 
     render() {
         return (
-            <table>
+            <table className={"table"}>
                 <thead>
                 <tr>
                     <th>
@@ -32,7 +32,7 @@ export default class CourseTable extends React.Component {
                     this.props.courses.map(course =>
                         <CourseRow key={course._id}
                                    course={course}
-                                   title = {this.props.title}
+                                   deleteCourse = {this.props.deleteCourse}
                         />
                     )
                 }

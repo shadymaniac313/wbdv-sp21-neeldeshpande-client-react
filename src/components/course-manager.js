@@ -13,13 +13,23 @@ export default class CourseManager extends React.Component {
             .then(courses => this.setState({courses}))
     }
 
+    deleteCourse = (course) => {
+        courseService.deleteCourse(course._id)
+            .then(status => {
+                this.setState((prevState) => ({
+                    courses: prevState.courses.filter(c => c._id !== course._id)
+                }))
+            })
+    }
+
     render() {
-        // console.log("courses")
-        // console.log(this.state.courses)
         return (
             <div className={"container"}>
                 <div className={"row"}>
-                    <CourseTable courses={this.state.courses} title={"test"}/>
+                    <CourseTable courses={this.state.courses}
+                                 title={"test"}
+                                 deleteCourse={this.deleteCourse}
+                    />
                 </div>
             </div>
         )

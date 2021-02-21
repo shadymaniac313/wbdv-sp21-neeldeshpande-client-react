@@ -1,8 +1,11 @@
 import React from 'react'
 
-const CourseRow = ({course, title}) => {
+const CourseRow = ({
+                       course,
+                       deleteCourse
+                   }) => {
     console.log(course)
-    return(
+    return (
         <tr>
             <td>
                 {course.title}
@@ -14,7 +17,14 @@ const CourseRow = ({course, title}) => {
                 {course.lastModified}
             </td>
             <td>
-                Action
+                <div className={"row"}>
+                    <div className="col-6">
+                        <button className="fa fa-check"/>
+                    </div>
+                    <div className="col-6">
+                        <button onClick={() => deleteCourse(course)} className="fa fa-trash"/>
+                    </div>
+                </div>
             </td>
         </tr>
     )

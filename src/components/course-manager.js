@@ -73,6 +73,8 @@ export default class CourseManager extends React.Component {
                     <div className={"container wbdv-course-grid"}>
                         <CourseGrid courses={this.state.courses}
                                     title={"test"}
+                                    updateCourse={this.updateCourse}
+                                    deleteCourse = {this.deleteCourse}
                         />
                     </div>
                 </Route>

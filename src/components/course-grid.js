@@ -3,7 +3,7 @@ import {Link} from "react-router-dom";
 import {CourseCard} from "./course-card";
 import "../styles/course-manager.style.client.css"
 
-const CourseGrid = ({courses}) =>
+const CourseGrid = ({courses, updateCourse, deleteCourse}) =>
     <div className={"wbdv-course-grid"}>
         <Link to="/courses/table">
             <button className="fas fa-2x fa-list float-right"/>
@@ -12,7 +12,10 @@ const CourseGrid = ({courses}) =>
             {
                 courses.map(course =>
                     <CourseCard key={course._id}
-                                course={course}/>
+                                course={course}
+                                updateCourse={updateCourse}
+                                deleteCourse={deleteCourse}
+                    />
                 )
             }
 

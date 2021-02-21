@@ -3,7 +3,8 @@ import {Link} from "react-router-dom";
 
 export const CourseCard = ({
                                course,
-                               updateCourse
+                               updateCourse,
+                               deleteCourse
                            }) => {
     const [editing, setEditing] = useState(false)
     const [title, setTitle] = useState(course.title)
@@ -22,12 +23,43 @@ export const CourseCard = ({
             <img src="https://www.valuecoders.com/blog/wp-content/uploads/2016/08/react.png" className="card-img-top"
                  alt="..."/>
             <div className="card-body">
-                <h5 className="card-title">{"" + course.title}</h5>
+                {
+                    !editing &&
+                    <h5>{course.title}</h5>
+                }
+                {
+                    editing &&
+                    <input
+                        className="form-control"
+                        onChange={(e) => setTitle(e.target.value)}
+                        value={title}/>
+                }
                 <p className="card-text">Some quick example text to build on the card title and make up the bulk of
                     the card's content.</p>
-                <Link to="/editor" className="btn btn-primary">
-                    {"" + course.title}
-                </Link>
+                <div className={"row"}>
+                    <div className={"col-8"}>
+                        <Link to="/editor" className="btn btn-primary">
+                            {"View"}
+                        </Link>
+                    </div>
+                    <div className={"col-2"}>
+                        {
+                            editing &&
+                            <button onClick={() => saveCourse()} className="fas fa-check"/>
+                        }
+
+                        {
+                            !editing &&
+                            <button onClick={() => setEditing(true)} className="fas fa-edit"/>
+                        }
+                    </div>
+                    <div className={"col"}>
+                        {
+                            editing &&
+                            <button onClick={() => deleteCourse(course)} className="fa fa-trash"/>
+                        }
+                    </div>
+                </div>
 
             </div>
         </div>

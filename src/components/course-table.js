@@ -16,14 +16,21 @@ export default class CourseTable extends React.Component {
                     <th>
                         Title
                     </th>
-                    <th>
+                    <th className={"wbdv-hide-on-minimize"}>
                         Owned By
                     </th>
-                    <th>
+                    <th className={"wbdv-hide-on-minimize"}>
                         Last Modified
                     </th>
                     <th>
-                        Action
+                        <div className="row">
+                            <div className="col-6">
+                                <i className="fa fa-sort"/>
+                            </div>
+                            <div className="col-6">
+                                <i className="fa fa-th"/>
+                            </div>
+                        </div>
                     </th>
                 </tr>
                 </thead>

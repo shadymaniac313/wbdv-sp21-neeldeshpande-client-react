@@ -18,7 +18,7 @@ export default class CourseStickyTop extends React.Component {
         })
     }
 
-    handleAddCourse = (e) => {
+    handleAddCourse = () => {
         this.setState({
             value:'',
             date: moment().format("MM/DD/YYYY")

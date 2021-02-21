@@ -1,4 +1,5 @@
-import {React, useState} from 'react'
+import React, {useState} from 'react'
+import '../styles/course-manager.style.client.css'
 
 const CourseRow = ({
                        course,
@@ -32,10 +33,10 @@ const CourseRow = ({
                         value={title}/>
                 }
             </td>
-            <td>
+            <td className={".wbdv-hide-on-minimize"}>
                 {course.owner}
             </td>
-            <td>
+            <td className={".wbdv-hide-on-minimize"}>
                 {course.lastModified}
             </td>
             <td>

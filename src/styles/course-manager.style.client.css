@@ -12,7 +12,7 @@
     vertical-align: -webkit-baseline-middle;
 }
 
-float {
+.float {
     position: fixed;
     width: 60px;
     height: 60px;
@@ -47,4 +47,10 @@ float {
 
 .wbdv-padding-left-20percent {
     padding-left: 20%;
+}
+
+@media screen and (max-width: 1000px) {
+    .wbdv-hide-on-minimize {
+        display: none;
+    }
 }

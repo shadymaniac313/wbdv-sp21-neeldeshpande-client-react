@@ -1,6 +1,4 @@
-import logo from './logo.svg';
 import './App.css';
-import CourseTable from "./components/course-table";
 import {BrowserRouter, Route} from "react-router-dom";
 import CourseManager from "./components/course-manager";
 import Home from "./components/home";

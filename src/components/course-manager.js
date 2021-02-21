@@ -65,8 +65,8 @@ export default class CourseManager extends React.Component {
                         />
                     </div>
                 </div>
-                <a href="#" className="float">
-                    <i className="fa fa-plus wbdv-add-icon-float fa-2x"/>
+                <a href="#" className={"float"}>
+                    <i className={"fa fa-plus wbdv-add-icon-float fa-2x"}/>
                 </a>
             </div>
         )

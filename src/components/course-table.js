@@ -12,20 +12,20 @@ export default class CourseTable extends React.Component {
         return (
             <table>
                 <thead>
-                <th>
-                    <td>
+                <tr>
+                    <th>
                         Title
-                    </td>
-                    <td>
+                    </th>
+                    <th>
                         Owned By
-                    </td>
-                    <td>
+                    </th>
+                    <th>
                         Last Modified
-                    </td>
-                    <td>
+                    </th>
+                    <th>
                         Action
-                    </td>
-                </th>
+                    </th>
+                </tr>
                 </thead>
                 <tbody>
                 {

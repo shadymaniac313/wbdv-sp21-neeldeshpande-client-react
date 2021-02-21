@@ -1,4 +1,5 @@
 const COURSES_URL = "https://wbdv-generic-server.herokuapp.com/api/001327792/courses";
+const jannunzi = "https://wbdv-generic-server.herokuapp.com/api/jannunzi/courses";
 
 export const createCourse = (course) =>
     fetch(COURSES_URL, {
@@ -11,7 +12,7 @@ export const createCourse = (course) =>
         .then(response => response.json())
 
 export const findAllCourses = () =>
-    fetch(COURSES_URL)
+    fetch(jannunzi)
         .then(response => response.json())
 
 export const findCourseById = (courseId) =>

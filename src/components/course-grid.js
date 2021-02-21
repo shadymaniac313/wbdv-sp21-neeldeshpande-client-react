@@ -6,12 +6,9 @@ import "../styles/course-manager.style.client.css"
 const CourseGrid = ({courses}) =>
     <div className={"wbdv-course-grid"}>
         <Link to="/courses/table">
-            <i className="fas fa-2x fa-list float-right"/>
+            <button className="fas fa-2x fa-list float-right"/>
         </Link>
         <div className="row">
-            {
-                console.log(courses)
-            }
             {
                 courses.map(course =>
                     <CourseCard key={course._id}

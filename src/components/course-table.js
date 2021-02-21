@@ -1,5 +1,6 @@
 import React from 'react'
 import CourseRow from "./course-row";
+import {Link} from "react-router-dom";
 
 export default class CourseTable extends React.Component {
 
@@ -28,7 +29,9 @@ export default class CourseTable extends React.Component {
                                 <i className="fa fa-sort"/>
                             </div>
                             <div className="col-6">
-                                <i className="fa fa-th"/>
+                                <Link to="/courses/grid">
+                                    <button className="fas fa-th float-right fa-2x"/>
+                                </Link>
                             </div>
                         </div>
                     </th>

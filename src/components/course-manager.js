@@ -3,6 +3,8 @@ import CourseTable from "./course-table";
 import courseService from "../services/course-service"
 import '../styles/course-manager.style.client.css'
 import CourseStickyTop from "./course-manager-sticky-top";
+import CourseGrid from "./course-grid";
+import {Route} from "react-router";
 
 export default class CourseManager extends React.Component {
     state = {
@@ -56,15 +58,24 @@ export default class CourseManager extends React.Component {
                                      addCourse={this.addCourse}
                     />
                 </div>
-                <div className={"container wbdv-course-table"}>
-                    <div className={"row"}>
-                        <CourseTable courses={this.state.courses}
-                                     title={"test"}
-                                     deleteCourse={this.deleteCourse}
-                                     updateCourse={this.updateCourse}
+
+                <Route path={"/courses/table"} exact={true}>
+                    <div className={"container wbdv-course-table"}>
+                        <div className={"row"}>
+                            <CourseTable courses={this.state.courses}
+                                         deleteCourse={this.deleteCourse}
+                                         updateCourse={this.updateCourse}
+                            />
+                        </div>
+                    </div>
+                </Route>
+                <Route path={"/courses/grid"} exact={true}>
+                    <div className={"container wbdv-course-grid"}>
+                        <CourseGrid courses={this.state.courses}
+                                    title={"test"}
                         />
                     </div>
-                </div>
+                </Route>
                 <a href="#" className={"float"}>
                     <i className={"fa fa-plus wbdv-add-icon-float fa-2x"}/>
                 </a>

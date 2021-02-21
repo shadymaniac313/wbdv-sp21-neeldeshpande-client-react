@@ -1,0 +1,50 @@
+.wbdv-sticky-top {
+    position: fixed;
+    width: 100%;
+    height: 50px;
+    white-space: nowrap;
+    background-color: #3B5998;
+    z-index: 1;
+}
+
+.wbdv-sticky-top-content {
+    color: white;
+    vertical-align: -webkit-baseline-middle;
+}
+
+float {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 40px;
+    right: 40px;
+    background-color: #4287f5;
+    color: #FFF;
+    border-radius: 50px;
+    text-align: center;
+    box-shadow: 2px 2px 3px #999;
+}
+
+.wbdv-add-icon-float {
+    margin-top: 15px;
+}
+
+/*.wbdv-course-list-title-row {*/
+/*    position: fixed;*/
+/*    background-color: #ebeced;*/
+/*    width: 100%;*/
+/*    box-shadow: 2px 2px 3px #999;*/
+/*    z-index: 2;*/
+/*}*/
+
+.wbdv-course-table {
+    margin-top: 3rem;
+}
+
+.wbdv-padding-5px {
+    padding: 5px;
+}
+
+.wbdv-padding-left-20percent {
+    padding-left: 20%;
+}

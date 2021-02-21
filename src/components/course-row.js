@@ -3,7 +3,7 @@ import {React, useState} from 'react'
 const CourseRow = ({
                        course,
                        deleteCourse,
-                        updateCourse
+                       updateCourse
                    }) => {
     const [editing, setEditing] = useState(false)
     const [title, setTitle] = useState(course.title)

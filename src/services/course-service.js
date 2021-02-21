@@ -1,5 +1,4 @@
 const COURSES_URL = "https://wbdv-generic-server.herokuapp.com/api/001327792/courses";
-const jannunzi = "https://wbdv-generic-server.herokuapp.com/api/jannunzi/courses";
 
 export const createCourse = (course) =>
     fetch(COURSES_URL, {
@@ -36,12 +35,16 @@ export const deleteCourse = (courseId) =>
     })
         .then(response => response.json())
 
+export const deleteCourses = (courses) =>
+    courses.map(course => deleteCourse(course._id, course))
+
 const api = {
     createCourse: createCourse,
     findAllCourses: findAllCourses,
     findCourseById: findCourseById,
     updateCourse: updateCourse,
     deleteCourse: deleteCourse,
+    deleteCourses: deleteCourses
 }
 
 export default api;

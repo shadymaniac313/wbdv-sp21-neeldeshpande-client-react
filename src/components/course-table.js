@@ -11,7 +11,7 @@ export default class CourseTable extends React.Component {
     render() {
         return (
             <table className={"table"}>
-                <thead>
+                <thead className={"wbdv-course-list-title-row"}>
                 <tr>
                     <th>
                         Title

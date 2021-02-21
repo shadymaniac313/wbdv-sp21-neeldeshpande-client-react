@@ -1,4 +1,5 @@
 import React from "react";
+import "../styles/course-manager.style.client.css"
 
 export default class CourseEditor extends React.Component {
     render() {

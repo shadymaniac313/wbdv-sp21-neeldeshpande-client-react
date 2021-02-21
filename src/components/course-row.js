@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import '../styles/course-manager.style.client.css'
+import {Link} from "react-router-dom";
 
 const CourseRow = ({
                        course,
@@ -23,7 +24,11 @@ const CourseRow = ({
             <td>
                 {
                     !editing &&
-                    course.title
+                        <Link to={"/editor"}>
+                            {
+                                course.title
+                            }
+                        </Link>
                 }
                 {
                     editing &&

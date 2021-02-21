@@ -1,3 +1,9 @@
+#wrapper {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+}
+
 .wbdv-sticky-top {
     position: fixed;
     width: 100%;
@@ -48,6 +54,25 @@
 .wbdv-padding-left-20percent {
     padding-left: 20%;
 }
+
+.wbdv-editor-left-pane {
+    height: 100%;
+    background-color: #2d467d;
+}
+
+.wbdv-editor-content {
+    height: 100%;
+    background-color: #ebeced;
+    width: 80%;
+    padding-top: 50px;
+}
+
+.wbdv-module-list {
+    padding-top: 50px;
+    margin-top: 10%;
+    margin-left: 5%;
+}
+
 
 @media screen and (max-width: 1000px) {
     .wbdv-hide-on-minimize {

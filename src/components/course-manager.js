@@ -14,10 +14,12 @@ export default class CourseManager extends React.Component {
     }
 
     render() {
+        // console.log("courses")
+        // console.log(this.state.courses)
         return (
             <div className={"container"}>
                 <div className={"row"}>
-                    <CourseTable courses={this.state.courses}/>
+                    <CourseTable courses={this.state.courses} title={"test"}/>
                 </div>
             </div>
         )

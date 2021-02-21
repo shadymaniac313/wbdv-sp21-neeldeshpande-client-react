@@ -30,7 +30,10 @@ export default class CourseTable extends React.Component {
                 <tbody>
                 {
                     this.props.courses.map(course =>
-                        <CourseRow/>
+                        <CourseRow key={course._id}
+                                   course={course}
+                                   title = {this.props.title}
+                        />
                     )
                 }
                 </tbody>

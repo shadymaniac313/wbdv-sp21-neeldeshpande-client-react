@@ -12,7 +12,7 @@ export const createCourse = (course) =>
         .then(response => response.json())
 
 export const findAllCourses = () =>
-    fetch(jannunzi)
+    fetch(COURSES_URL)
         .then(response => response.json())
 
 export const findCourseById = (courseId) =>

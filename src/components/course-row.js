@@ -1,16 +1,17 @@
 import React from 'react'
 
-const CourseRow = () => {
+const CourseRow = ({course, title}) => {
+    console.log(course)
     return(
         <tr>
             <td>
-                CourseName
+                {course.title}
             </td>
             <td>
-                owner
+                {course.owner}
             </td>
             <td>
-                lastmodified
+                {course.lastModified}
             </td>
             <td>
                 Action

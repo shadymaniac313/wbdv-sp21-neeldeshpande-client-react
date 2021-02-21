@@ -1,6 +1,5 @@
 import React from 'react'
 import CourseTable from "./course-table";
-import CourseRow from "./course-row";
 import courseService from "../services/course-service"
 
 export default class CourseManager extends React.Component {
@@ -22,6 +21,23 @@ export default class CourseManager extends React.Component {
             })
     }
 
+    updateCourse = (course) => {
+        courseService.updateCourse(course._id, course)
+            .then(status => {
+                this.setState((prevState) => {
+                    let nextState = {...prevState}
+                    nextState.courses = prevState.courses.map(c => {
+                        if(c._id === course._id) {
+                            return course
+                        } else {
+                            return c
+                        }
+                    })
+                    return nextState
+                })
+            })
+    }
+
     render() {
         return (
             <div className={"container"}>
@@ -29,6 +45,7 @@ export default class CourseManager extends React.Component {
                     <CourseTable courses={this.state.courses}
                                  title={"test"}
                                  deleteCourse={this.deleteCourse}
+                                 updateCourse={this.updateCourse}
                     />
                 </div>
             </div>

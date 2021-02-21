@@ -19,7 +19,7 @@ export const findCourseById = (courseId) =>
     fetch(`${COURSES_URL}/${courseId}`)
         .then(response => response.json())
 
-export const updateCourse = (id, course) => {
+export const updateCourse = (id, course) =>
     fetch(`${COURSES_URL}/${id}`, {
         method: 'PUT',
         body: JSON.stringify(course),
@@ -28,7 +28,7 @@ export const updateCourse = (id, course) => {
         }
     })
         .then(response => response.json())
-}
+
 
 export const deleteCourse = (courseId) =>
     fetch(`${COURSES_URL}/${courseId}`, {

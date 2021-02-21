@@ -1,14 +1,36 @@
-import React from 'react'
+import {React, useState} from 'react'
 
 const CourseRow = ({
                        course,
-                       deleteCourse
+                       deleteCourse,
+                        updateCourse
                    }) => {
-    console.log(course)
+    const [editing, setEditing] = useState(false)
+    const [title, setTitle] = useState(course.title)
+
+    const saveCourse = () => {
+        setEditing(false)
+        const newCourse = {
+            ...course,
+            title: title
+        }
+        updateCourse(newCourse)
+    }
+
     return (
         <tr>
             <td>
-                {course.title}
+                {
+                    !editing &&
+                    course.title
+                }
+                {
+                    editing &&
+                    <input
+                        className="form-control"
+                        onChange={(e) => setTitle(e.target.value)}
+                        value={title}/>
+                }
             </td>
             <td>
                 {course.owner}
@@ -19,10 +41,21 @@ const CourseRow = ({
             <td>
                 <div className={"row"}>
                     <div className="col-6">
-                        <button className="fa fa-check"/>
+                        {
+                            editing &&
+                            <button onClick={() => saveCourse()} className="fas fa-check"/>
+                        }
+
+                        {
+                            !editing &&
+                            <button onClick={() => setEditing(true)} className="fas fa-edit"/>
+                        }
                     </div>
                     <div className="col-6">
-                        <button onClick={() => deleteCourse(course)} className="fa fa-trash"/>
+                        {
+                            editing &&
+                            <button onClick={() => deleteCourse(course)} className="fa fa-trash"/>
+                        }
                     </div>
                 </div>
             </td>

@@ -33,6 +33,7 @@ export default class CourseTable extends React.Component {
                         <CourseRow key={course._id}
                                    course={course}
                                    deleteCourse = {this.props.deleteCourse}
+                                   updateCourse = {this.props.updateCourse}
                         />
                     )
                 }

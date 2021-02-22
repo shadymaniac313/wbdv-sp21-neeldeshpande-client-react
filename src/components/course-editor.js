@@ -1,7 +1,13 @@
 import React from "react";
-import "../styles/course-manager.style.client.css"
+import "../styles/course-editor.style.client.css"
 
 export default class CourseEditor extends React.Component {
+
+    constructor(props) {
+        super(props);
+    }
+
+
     render() {
         return (
             <div>
@@ -10,7 +16,9 @@ export default class CourseEditor extends React.Component {
                     <div className="wbdv-sticky-top">
                         <div className="row">
                             <div className="wbdv-editor-head-icon wbdv-sticky-top-content">
-                                <i className="fa fa-times-circle fa-2x wbdv-sticky-top-content"/>
+                                <i className="fa fa-times-circle fa-2x wbdv-sticky-top-content"
+                                    onClick={() => this.props.history.goBack()}
+                                />
                             </div>
                             <div className="col-2 wbdv-editor-head-title">
                                 <div className="wbdv-sticky-top-content wbdv-editor-head-title">

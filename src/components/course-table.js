@@ -30,7 +30,7 @@ export default class CourseTable extends React.Component {
                             </div>
                             <div className="col-6">
                                 <Link to="/courses/grid">
-                                    <button className="fas fa-th float-right fa-2x"/>
+                                    <button className="fas fa-th float-right"/>
                                 </Link>
                             </div>
                         </div>

@@ -6,7 +6,7 @@ import "../styles/course-manager.style.client.css"
 const CourseGrid = ({courses, updateCourse, deleteCourse}) =>
     <div className={"wbdv-course-grid"}>
         <Link to="/courses/table">
-            <button className="fas fa-2x fa-list float-right"/>
+            <button className="fas fa-list float-right"/>
         </Link>
         <div className="row">
             {

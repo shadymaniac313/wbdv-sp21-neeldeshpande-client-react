@@ -1,5 +1,5 @@
 import React from 'react'
-import CourseManager from "./course-manager";
+import CourseManager from "./course-manager/course-manager";
 import {BrowserRouter, Route, Link} from "react-router-dom";
 
 export default class Home extends React.Component {

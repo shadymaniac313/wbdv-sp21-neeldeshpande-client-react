@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import '../styles/course-manager.style.client.css'
+import '../../styles/course-manager.style.client.css'
 import {Link} from "react-router-dom";
 
 const CourseRow = ({

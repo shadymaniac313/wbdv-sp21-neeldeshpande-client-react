@@ -1,7 +1,7 @@
 const COURSES_URL = "https://wbdv-generic-server.herokuapp.com/api/001327792/courses";
 
-export const createCourse = (course) =>
-    fetch(COURSES_URL, {
+export const createCourse = (course) => {
+    return fetch(COURSES_URL, {
         method: 'POST',
         body: JSON.stringify(course),
         headers: {
@@ -9,6 +9,7 @@ export const createCourse = (course) =>
         }
     })
         .then(response => response.json())
+}
 
 export const findAllCourses = () =>
     fetch(COURSES_URL)

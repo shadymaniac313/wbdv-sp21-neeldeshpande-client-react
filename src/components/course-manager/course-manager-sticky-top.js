@@ -1,5 +1,6 @@
 import React from "react";
 import moment from "moment";
+import '../../styles/course-manager.style.client.css'
 
 export default class CourseStickyTop extends React.Component {
 
@@ -20,14 +21,14 @@ export default class CourseStickyTop extends React.Component {
     }
 
     handleAddCourse = () => {
+        this.props.addCourse({
+            title: this.state.value,
+            owner: "me",
+            lastModified: this.state.date
+        })
         this.setState({
             value:'',
             date: moment().format("MM/DD/YYYY")
-        })
-        this.props.addCourse({
-            title: this.state.value,
-            owner: this.state.date,
-            lastModified: this.state.date
         })
     }
 
@@ -38,7 +39,7 @@ export default class CourseStickyTop extends React.Component {
                     <div className="col-1">
                         <i className="fa fa-bars fa-2x wbdv-sticky-top-content wbdv-padding-left-20percent"/>
                     </div>
-                    <div className="col-2 wbdv-hide-on-minimize">
+                    <div className="col-2 wbdv-hide-on-minimize-m">
                         <h4 className="wbdv-sticky-top-content wbdv-home-title">Course Manager</h4>
                     </div>
                     <div className="col-8">

@@ -10,7 +10,8 @@ const CourseGrid = ({courses, updateCourse, deleteCourse}) =>
                 <h6>Recent Documents</h6>
             </div>
             <div className={"col-4"}>
-                <h6>Owned by me</h6>
+                <h6 className={"wbdv-course-grid-header-ownedby"}>Owned by me </h6>
+                <i className={"fa fa-sort-down"}/>
             </div>
             <div className={"col-2"}>
                 <Link to="/courses/table" className={"float=right"}>

@@ -103,6 +103,10 @@
     width: 15rem !important;
 }
 
+.wbdv-course-grid-header-ownedby {
+    display: inline-block;
+}
+
 .wbdv-course-grid-content {
     margin-left: 1rem;
 }

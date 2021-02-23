@@ -42,7 +42,7 @@ export default class CourseStickyTop extends React.Component {
                     </div>
                     <div className="col-8">
                         <input className="form-control wbdv-course-searchbar" placeholder="New Course Title"
-                               onChange={this.handleInputChange}/>
+                               onChange={this.handleInputChange} value={this.state.value}/>
                     </div>
                     <div className="col-1">
                         <i onClick={this.handleAddCourse} className="fa fa-plus-circle fa-2x wbdv-sticky-top-content"/>

@@ -38,10 +38,10 @@ const CourseRow = ({
                         value={title}/>
                 }
             </td>
-            <td className={".wbdv-hide-on-minimize"}>
+            <td className={"wbdv-hide-on-minimize-s"}>
                 {course.owner}
             </td>
-            <td className={".wbdv-hide-on-minimize"}>
+            <td className={"wbdv-hide-on-minimize-s wbdv-hide-on-minimize-m"}>
                 {course.lastModified}
             </td>
             <td>
@@ -49,18 +49,18 @@ const CourseRow = ({
                     <div className="col-6">
                         {
                             editing &&
-                            <button onClick={() => saveCourse()} className="fas fa-check"/>
+                            <button onClick={() => saveCourse()} className="fas fa-check wbdv-btn-nobackground"/>
                         }
 
                         {
                             !editing &&
-                            <button onClick={() => setEditing(true)} className="fas fa-edit"/>
+                            <button onClick={() => setEditing(true)} className="fas fa-edit wbdv-btn-nobackground"/>
                         }
                     </div>
                     <div className="col-6">
                         {
                             editing &&
-                            <button onClick={() => deleteCourse(course)} className="fa fa-trash"/>
+                            <button onClick={() => deleteCourse(course)} className="fa fa-trash wbdv-btn-nobackground"/>
                         }
                     </div>
                 </div>

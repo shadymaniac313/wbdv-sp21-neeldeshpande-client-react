@@ -1,6 +1,7 @@
 import React from 'react'
 import CourseRow from "./course-row";
 import {Link} from "react-router-dom";
+import "../../styles/course-manager.style.client.css"
 
 export default class CourseTable extends React.Component {
 
@@ -17,10 +18,10 @@ export default class CourseTable extends React.Component {
                     <th>
                         Title
                     </th>
-                    <th className={"wbdv-hide-on-minimize"}>
+                    <th className={"wbdv-hide-on-minimize-s"}>
                         Owned By
                     </th>
-                    <th className={"wbdv-hide-on-minimize"}>
+                    <th className={"wbdv-hide-on-minimize-s wbdv-hide-on-minimize-m"}>
                         Last Modified
                     </th>
                     <th>
@@ -30,7 +31,7 @@ export default class CourseTable extends React.Component {
                             </div>
                             <div className="col-6">
                                 <Link to="/courses/grid">
-                                    <button className="fas fa-th float-right"/>
+                                    <button className="fas fa-th float-right wbdv-btn-nobackground"/>
                                 </Link>
                             </div>
                         </div>

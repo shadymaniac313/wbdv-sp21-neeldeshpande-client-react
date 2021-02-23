@@ -29,7 +29,6 @@
 .wbdv-module-list {
     padding-top: 50px;
     margin-top: 10%;
-    margin-left: 5%;
 }
 
 .wbdv-content-row {
@@ -88,6 +87,7 @@
 
 .wbdv-list-delete-icon {
     margin-top: 0.3rem;
+    float: right;
 }
 
 .wbdv-group-item-add {
@@ -97,4 +97,12 @@
 .wbdv-editor-nav-pills {
     margin-top: 1.0rem;
     background-color: #3b5998;
+}
+
+.card {
+    width: 15rem !important;
+}
+
+.wbdv-course-grid-content {
+    margin-left: 1rem;
 }

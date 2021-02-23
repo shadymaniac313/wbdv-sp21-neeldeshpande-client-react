@@ -3,7 +3,7 @@ import CourseTable from "../course-table/course-table";
 import courseService from "../../services/course-service"
 import '../../styles/course-manager.style.client.css'
 import CourseStickyTop from "./course-manager-sticky-top";
-import CourseGrid from "./course-grid/course-grid";
+import CourseGrid from "../course-grid/course-grid";
 import {Route} from "react-router";
 
 export default class CourseManager extends React.Component {

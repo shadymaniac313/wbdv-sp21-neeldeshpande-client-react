@@ -37,26 +37,24 @@ export const CourseCard = ({
                 <p className="card-text">Some quick example text to build on the card title and make up the bulk of
                     the card's content.</p>
                 <div className={"row"}>
-                    <div className={"col-8"}>
+                    <div className={"col-6"}>
                         <Link to="/editor" className="btn btn-primary">
                             {"View"}
                         </Link>
                     </div>
-                    <div className={"col-2"}>
+                    <div className={"col"}>
                         {
                             editing &&
-                            <button onClick={() => saveCourse()} className="fas fa-check"/>
+                            <button onClick={() => saveCourse()} className="fas fa-check wbdv-btn-nobackground"/>
                         }
 
                         {
                             !editing &&
-                            <button onClick={() => setEditing(true)} className="fas fa-edit"/>
+                            <button onClick={() => setEditing(true)} className="fas fa-2x fa-edit wbdv-btn-nobackground float-right"/>
                         }
-                    </div>
-                    <div className={"col"}>
                         {
                             editing &&
-                            <button onClick={() => deleteCourse(course)} className="fa fa-trash"/>
+                            <button onClick={() => deleteCourse(course)} className="fa fa-trash wbdv-btn-nobackground"/>
                         }
                     </div>
                 </div>

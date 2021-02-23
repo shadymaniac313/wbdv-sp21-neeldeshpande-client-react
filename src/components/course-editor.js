@@ -16,7 +16,7 @@ export default class CourseEditor extends React.Component {
                     <div className="wbdv-sticky-top">
                         <div className="row">
                             <div className="wbdv-editor-head-icon wbdv-sticky-top-content">
-                                <i className="fa fa-times-circle fa-2x wbdv-sticky-top-content"
+                                <i className="fa fa-arrow-left fa-2x wbdv-sticky-top-content"
                                     onClick={() => this.props.history.goBack()}
                                 />
                             </div>

@@ -8,7 +8,8 @@ import {Route} from "react-router";
 
 export default class CourseManager extends React.Component {
     state = {
-        courses: []
+        courses: [],
+        searchValue: ''
     }
 
     componentDidMount() {
@@ -22,6 +23,10 @@ export default class CourseManager extends React.Component {
                 this.state.courses.push(actualCourse)
                 this.setState(this.state)
             })
+        this.setState((prevState)=>({
+            ...prevState,
+            searchValue: ''
+        }))
     }
 
     deleteCourse = (course) => {
@@ -50,12 +55,21 @@ export default class CourseManager extends React.Component {
             })
     }
 
+    setSearchValue = (value) => {
+        this.setState((prevState)=> ({
+            ...prevState,
+            searchValue: value
+        }))
+    }
+
     render() {
         return (
             <div>
                 <div className={"row"}>
                     <CourseStickyTop courses={this.state.courses}
                                      addCourse={this.addCourse}
+                                     setSearchValue={this.setSearchValue}
+                                     searchValue={this.state.searchValue}
                     />
                 </div>
 
@@ -74,12 +88,18 @@ export default class CourseManager extends React.Component {
                         <CourseGrid courses={this.state.courses}
                                     title={"test"}
                                     updateCourse={this.updateCourse}
-                                    deleteCourse = {this.deleteCourse}
+                                    deleteCourse={this.deleteCourse}
                         />
                     </div>
                 </Route>
                 <a href="#" className={"float"}>
-                    <i className={"fa fa-plus wbdv-add-icon-float fa-2x"}/>
+                    <i className={"fa fa-plus wbdv-add-icon-float fa-2x"}
+                       onClick={() => this.addCourse({
+                           title: this.state.searchValue,
+                           owner: "me",
+                           lastModified: "1/1/2021"
+                       })}
+                    />
                 </a>
             </div>
         )

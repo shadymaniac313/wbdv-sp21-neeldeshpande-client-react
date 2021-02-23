@@ -13,18 +13,19 @@ export default class CourseTable extends React.Component {
     render() {
         return (
             <table className={"table"}>
+
                 <thead className={"wbdv-course-list-title-row"}>
                 <tr>
-                    <th>
+                    <th className={"wbdv-course-table-title"}>
                         Title
                     </th>
-                    <th className={"wbdv-hide-on-minimize-s"}>
+                    <th className={"wbdv-hide-on-minimize-s wbdv-course-table-ownedby"}>
                         Owned By
                     </th>
-                    <th className={"wbdv-hide-on-minimize-s wbdv-hide-on-minimize-m"}>
+                    <th className={"wbdv-hide-on-minimize-s wbdv-hide-on-minimize-m wbdv-course-table-lastmodified"}>
                         Last Modified
                     </th>
-                    <th>
+                    <th className={"wbdv-course-table-action"}>
                         <div className="row">
                             <div className="col-6">
                                 <i className="fa fa-sort"/>

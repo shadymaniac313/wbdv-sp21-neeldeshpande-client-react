@@ -16,6 +16,7 @@ export default class CourseStickyTop extends React.Component {
         this.setState({
             value: e.target.value
         })
+        this.props.setSearchValue(this.state.value)
     }
 
     handleAddCourse = () => {
@@ -25,7 +26,7 @@ export default class CourseStickyTop extends React.Component {
         })
         this.props.addCourse({
             title: this.state.value,
-            owner: "me",
+            owner: this.state.date,
             lastModified: this.state.date
         })
     }

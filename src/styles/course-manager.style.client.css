@@ -58,6 +58,22 @@
     border: none;
 }
 
+.wbdv-course-table-title{
+    width: 50%;
+}
+
+.wbdv-course-table-ownedby{
+    width: 20%;
+}
+
+.wbdv-course-table-lastModified{
+    width: 20%;
+}
+
+.wbdv-course-table-action{
+    width: 10%;
+}
+
 @media (max-width: 576px) {
     .wbdv-hide-on-minimize-s {
         display: none;
@@ -65,12 +81,6 @@
 }
 
 @media (max-width: 768px) {
-    .wbdv-hide-on-minimize-m {
-        display: none;
-    }
-}
-
-@media (min-width: 1200px) {
     .wbdv-hide-on-minimize-m {
         display: none;
     }

@@ -21,7 +21,7 @@ const CourseRow = ({
 
     return (
         <tr>
-            <td>
+            <td className={"wbdv-course-table-title"}>
                 {
                     !editing &&
                         <Link to={"/editor"}>
@@ -38,13 +38,13 @@ const CourseRow = ({
                         value={title}/>
                 }
             </td>
-            <td className={"wbdv-hide-on-minimize-s"}>
+            <td className={"wbdv-hide-on-minimize-s wbdv-course-table-ownedby"}>
                 {course.owner}
             </td>
-            <td className={"wbdv-hide-on-minimize-s wbdv-hide-on-minimize-m"}>
+            <td className={"wbdv-hide-on-minimize-s wbdv-hide-on-minimize-m wbdv-course-table-lastModified"}>
                 {course.lastModified}
             </td>
-            <td>
+            <td className={"wbdv-course-table-action"}>
                 <div className={"row"}>
                     <div className="col-6">
                         {

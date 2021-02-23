@@ -24,11 +24,20 @@ const CourseRow = ({
             <td className={"wbdv-course-table-title"}>
                 {
                     !editing &&
-                        <Link to={"/editor"}>
-                            {
-                                course.title
-                            }
-                        </Link>
+                    <div className={"row"}>
+                        <div className={"col-1"}>
+                            <i className={"fa fa-file"}/>
+                        </div>
+
+                        <div className={"col"}>
+                            <Link to={"/editor"}>
+                                {
+                                    course.title
+                                }
+                            </Link>
+                        </div>
+
+                    </div>
                 }
                 {
                     editing &&

@@ -1,5 +1,5 @@
 import React from "react";
-import "../styles/course-editor.style.client.css"
+import "../../styles/course-editor.style.client.css"
 
 export default class CourseEditor extends React.Component {
 

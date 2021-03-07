@@ -7,7 +7,8 @@ import moduleService from "../../services/module-service"
 const ModuleList = (
     {
         modules = [],
-        findModulesForCourse = (courseId) => console.log(courseId)
+        findModulesForCourse = (courseId) => console.log(courseId),
+        updateModule
     }) => {
     const {courseId, moduleId} = useParams();
     useEffect(() => {
@@ -18,7 +19,10 @@ const ModuleList = (
             {
                 modules.map(module =>
                     <li className="list-group-item active">
-                        <EditableItem key={module._id} item={module}/>
+                        <EditableItem key={module._id}
+                                      item={module}
+                                      updateItem={updateModule}
+                        />
                     </li>
                 )
             }
@@ -42,6 +46,13 @@ const dtpm = (dispatch) => {
                 .then(fetchedModules => dispatch({
                     type: "FIND_MODULES_FOR_COURSE",
                     modules: fetchedModules
+                }))
+        },
+        updateModule: (module) => {
+            moduleService.updateModule(module._id, module)
+                .then(status => dispatch({
+                    type: "UPDATE_MODULE",
+                    module
                 }))
         }
     }

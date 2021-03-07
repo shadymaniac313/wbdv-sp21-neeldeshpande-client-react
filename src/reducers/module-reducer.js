@@ -11,6 +11,16 @@ const moduleReducer = (state = initialState, action) => {
                 ...state,
                 modules: action.modules
             }
+        case "UPDATE_MODULE":
+            return {
+                modules: state.modules.map(m => {
+                    if(m._id === action.module._id) {
+                        return action.module
+                    } else {
+                        return m
+                    }
+                })
+            }
         default:
             return state
     }

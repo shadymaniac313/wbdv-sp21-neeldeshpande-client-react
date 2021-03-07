@@ -38,7 +38,7 @@ export const CourseCard = ({
                     the card's content.</p>
                 <div className={"row"}>
                     <div className={"col-6"}>
-                        <Link to="/editor" className="btn btn-primary">
+                        <Link to={`/courses/grid/edit/${course._id}`} className="btn btn-primary">
                             {"View"}
                         </Link>
                     </div>

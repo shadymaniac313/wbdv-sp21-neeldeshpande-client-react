@@ -4,6 +4,7 @@ import courseService from "../../services/course-service"
 import '../../styles/course-manager.style.client.css'
 import CourseStickyTop from "./course-manager-sticky-top";
 import CourseGrid from "../course-grid/course-grid";
+import CourseEditor from "../course-editor/course-editor";
 import {Route} from "react-router";
 
 export default class CourseManager extends React.Component {
@@ -91,6 +92,13 @@ export default class CourseManager extends React.Component {
                                     deleteCourse={this.deleteCourse}
                         />
                     </div>
+                </Route>
+                <Route path={[
+                    "/courses/:layout/edit/:courseId",
+                    "/courses/editor/:courseId/:moduleId",
+                    "/courses/editor/:courseId/:moduleId/:lessonId"]}
+                       exact={true}
+                       render={(props) => <CourseEditor {...props}/>}>
                 </Route>
                 <a href="#" className={"float"}>
                     <i className={"fa fa-plus wbdv-add-icon-float fa-2x"}

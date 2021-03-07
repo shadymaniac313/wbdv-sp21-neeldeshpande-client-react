@@ -1,5 +1,5 @@
 import './App.css';
-import {BrowserRouter, Route} from "react-router-dom";
+import {BrowserRouter as Router, Route} from "react-router-dom";
 import CourseManager from "./components/course-manager/course-manager";
 import CourseEditor from "./components/course-editor/course-editor";
 import Home from "./components/home";
@@ -10,13 +10,14 @@ import React from "react";
 function App() {
     return (
         <div>
-            <BrowserRouter>
+            <Router>
                 <div className="container-fluid">
                     <Route path="/" exact={true} component={Home}/>
+                    {/*<Route path="courses/:layout/edit/:courseId"*/}
+                    {/*       render={(props) => <CourseEditor {...props}/>}/>*/}
                     <Route path="/courses" component={CourseManager}/>
-                    <Route path="/editor" exact={true} render={(props) => <CourseEditor {...props}/>}/>
                 </div>
-            </BrowserRouter>
+            </Router>
         </div>
     );
 }

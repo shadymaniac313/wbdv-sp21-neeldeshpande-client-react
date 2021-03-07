@@ -30,7 +30,7 @@ const CourseRow = ({
                         </div>
 
                         <div className={"col"}>
-                            <Link to={"/editor"}>
+                            <Link to={`/courses/table/edit/${course._id}`}>
                                 {
                                     course.title
                                 }

@@ -2,13 +2,14 @@ import React, {useEffect} from "react";
 import {connect} from 'react-redux'
 import EditableItem from "../editable-item"
 import {useParams} from "react-router";
-import moduleService from "../../services/module-service"
+import moduleService, {deleteModule} from "../../services/module-service"
 
 const ModuleList = (
     {
         modules = [],
         findModulesForCourse = (courseId) => console.log(courseId),
-        updateModule
+        updateModule,
+        deleteModule
     }) => {
     const {courseId, moduleId} = useParams();
     useEffect(() => {
@@ -22,6 +23,7 @@ const ModuleList = (
                         <EditableItem key={module._id}
                                       item={module}
                                       updateItem={updateModule}
+                                      deleteItem={deleteModule}
                         />
                     </li>
                 )
@@ -48,6 +50,12 @@ const dtpm = (dispatch) => {
                     modules: fetchedModules
                 }))
         },
+        deleteModule: (item) =>
+            moduleService.deleteModule(item._id)
+                .then(status => dispatch({
+                    type: "DELETE_MODULE",
+                    moduleToDelete: item
+                })),
         updateModule: (module) => {
             moduleService.updateModule(module._id, module)
                 .then(status => dispatch({

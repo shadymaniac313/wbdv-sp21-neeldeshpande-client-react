@@ -1,16 +1,22 @@
 import React from "react";
 import ModuleList from "./module-list";
+import {Link, useParams} from "react-router";
+import moduleReducer from "../../reducers/module-reducer"
+import {combineReducers, createStore,} from "redux";
+import {Provider} from "react-redux"
 import "../../styles/course-editor.style.client.css"
 
-export default class CourseEditor extends React.Component {
+const reducer = combineReducers({
+    moduleReducer: moduleReducer
+})
 
-    constructor(props) {
-        super(props);
-    }
+const store = createStore(reducer)
 
+const CourseEditor = ({history}) => {
+    const {courseId, moduleId} = useParams();
 
-    render() {
-        return (
+    return (
+        <Provider store={store}>
             <div>
                 <title>Title</title>
                 <div id="wrapper">
@@ -18,12 +24,12 @@ export default class CourseEditor extends React.Component {
                         <div className="row">
                             <div className="wbdv-editor-head-icon wbdv-sticky-top-content">
                                 <i className="fa fa-arrow-left fa-2x wbdv-sticky-top-content"
-                                    onClick={() => this.props.history.goBack()}
+                                   onClick={() => history.goBack()}
                                 />
                             </div>
                             <div className="col-2 wbdv-editor-head-title">
                                 <div className="wbdv-sticky-top-content wbdv-editor-head-title">
-                                    <h4 className="wbdv-editor-head-title-text">CS5610</h4>
+                                    <h4 className="wbdv-editor-head-title-text">{courseId} {moduleId}</h4>
                                 </div>
                             </div>
                             <div className="col-9">
@@ -90,8 +96,10 @@ export default class CourseEditor extends React.Component {
                     </div>
                 </div>
             </div>
-        )
+        </Provider>
+    )
 
-    }
 
 }
+
+export default CourseEditor

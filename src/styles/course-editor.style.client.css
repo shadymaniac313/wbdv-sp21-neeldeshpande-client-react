@@ -4,13 +4,14 @@
     position: fixed;
 }
 
-.wbdv-sticky-top {
+.wbdv-sticky-top-editor {
     position: fixed;
     width: 100%;
     height: 50px;
     white-space: nowrap;
     background-color: #3B5998;
     box-shadow: 2px 2px 3px #999;
+    margin-top: 3rem;
     z-index: 1;
 }
 
@@ -28,7 +29,7 @@
 
 .wbdv-module-list {
     padding-top: 50px;
-    margin-top: 10%;
+    margin-top: 20%;
 }
 
 .wbdv-content-row {
@@ -73,7 +74,7 @@
 }
 
 .nav-link.active {
-    background-color: #2d467d !important;
+    background-color: #007bff !important;
     color: white !important;
     font-weight: lighter;
 }
@@ -95,7 +96,7 @@
 }
 
 .wbdv-editor-nav-pills {
-    margin-top: 1.0rem;
+    margin-top: 4rem;
     background-color: #3b5998;
 }
 

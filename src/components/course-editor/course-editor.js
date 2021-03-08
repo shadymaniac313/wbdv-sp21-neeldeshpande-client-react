@@ -3,7 +3,9 @@ import ModuleList from "./module-list";
 import {Link, useParams} from "react-router";
 import moduleReducer from "../../reducers/module-reducer"
 import {combineReducers, createStore,} from "redux";
+import courseService from "../../services/course-service"
 import {Provider} from "react-redux"
+
 import "../../styles/course-editor.style.client.css"
 
 const reducer = combineReducers({
@@ -13,14 +15,20 @@ const reducer = combineReducers({
 const store = createStore(reducer)
 
 const CourseEditor = ({history}) => {
-    const {courseId, moduleId} = useParams();
+    const {layout, courseId, moduleId} = useParams();
+    console.log(moduleId)
+    // const selectedCourse = courseService.findCourseById(courseId)
+    //     .then((returnedCourse) => {
+    //         return returnedCourse.json()
+    //     })
+    // console.log(selectedCourse)
 
     return (
         <Provider store={store}>
             <div>
                 <title>Title</title>
                 <div id="wrapper">
-                    <div className="wbdv-sticky-top jdbfjkkbf">
+                    <div className="wbdv-sticky-top-editor">
                         <div className="row">
                             <div className="wbdv-editor-head-icon wbdv-sticky-top-content">
                                 <i className="fa fa-arrow-left fa-2x wbdv-sticky-top-content"
@@ -29,7 +37,7 @@ const CourseEditor = ({history}) => {
                             </div>
                             <div className="col-2 wbdv-editor-head-title">
                                 <div className="wbdv-sticky-top-content wbdv-editor-head-title">
-                                    <h4 className="wbdv-editor-head-title-text">{courseId} {moduleId}</h4>
+                                    <h4 className="wbdv-editor-head-title-text">{courseId}</h4>
                                 </div>
                             </div>
                             <div className="col-9">

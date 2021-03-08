@@ -1,6 +1,6 @@
 const initialState = {
     modules: [
-        {_id: 123, title: ""}
+        {_id: 123, title: "XYZ"}
     ]
 }
 

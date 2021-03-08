@@ -2,8 +2,8 @@ import React, {useState} from "react";
 import {Link} from "react-router-dom";
 
 const EditableItem = ({
-                          to = "/somewhere/to/go",
-                          item = {_id: "ABC", title: "Some Title"},
+                          to = "/testlink",
+                          item = {_id: "ABC", title: ""},
                           active,
                           deleteItem,
                           updateItem
@@ -17,10 +17,10 @@ const EditableItem = ({
             {
                 !editing &&
                 <>
-                    <div className={"row"}>
+                    <div className={`row`}>
                         <div className={"col"}>
-                            <Link className={`nav-link ${active ? 'active' : ''}`} to={to}>
-                                {item.title} {JSON.stringify(active)}
+                            <Link className={`nav-link`} to={to}>
+                                {item.title}
                             </Link>
                         </div>
                         <div className={"col"}>

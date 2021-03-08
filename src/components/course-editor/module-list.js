@@ -2,7 +2,7 @@ import React, {useEffect} from "react";
 import {connect} from 'react-redux'
 import EditableItem from "../editable-item"
 import {useParams} from "react-router";
-import moduleService, {deleteModule} from "../../services/module-service"
+import moduleService from "../../services/module-service"
 
 const ModuleList = (
     {
@@ -12,7 +12,7 @@ const ModuleList = (
         deleteModule,
         createModule
     }) => {
-    const {courseId, moduleId} = useParams();
+    const {layout, courseId, moduleId} = useParams();
     useEffect(() => {
         findModulesForCourse(courseId)
     }, [])
@@ -20,12 +20,14 @@ const ModuleList = (
         <ul className="list-group wbdv-module-list">
             {
                 modules.map(module =>
-                    <li className="list-group-item active">
+                    <li className={`list-group-item ${module._id === moduleId ? 'active' : ''}`}>
                         <EditableItem key={module._id}
+                                      to={`/courses/edit/${courseId}/module/${module._id}`}
                                       item={module}
                                       updateItem={updateModule}
                                       deleteItem={deleteModule}
                                       createModule={createModule}
+                                      active={true}
                         />
                     </li>
                 )
@@ -52,11 +54,11 @@ const dtpm = (dispatch) => {
                     modules: fetchedModules
                 }))
         },
-        deleteModule: (item) =>
-            moduleService.deleteModule(item._id)
+        deleteModule: (module) =>
+            moduleService.deleteModule(module._id)
                 .then(status => dispatch({
                     type: "DELETE_MODULE",
-                    moduleToDelete: item
+                    moduleToDelete: module
                 })),
         updateModule: (module) => {
             moduleService.updateModule(module._id, module)

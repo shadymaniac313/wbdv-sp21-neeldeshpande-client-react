@@ -86,6 +86,11 @@
     margin-top: 5%;
 }
 
+.list-group-item.active {
+    border-color: gray;
+    margin-top: 5% !important;
+}
+
 .wbdv-list-delete-icon {
     margin-top: 0.3rem;
     float: right;

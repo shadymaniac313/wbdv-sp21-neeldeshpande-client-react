@@ -12,7 +12,7 @@ const ModuleList = (
         deleteModule,
         createModule
     }) => {
-    const {layout, courseId, moduleId} = useParams();
+    const {courseId, moduleId} = useParams();
     useEffect(() => {
         findModulesForCourse(courseId)
     }, [])

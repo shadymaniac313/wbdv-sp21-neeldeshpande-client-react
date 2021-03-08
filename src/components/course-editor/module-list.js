@@ -9,7 +9,8 @@ const ModuleList = (
         modules = [],
         findModulesForCourse = (courseId) => console.log(courseId),
         updateModule,
-        deleteModule
+        deleteModule,
+        createModule
     }) => {
     const {courseId, moduleId} = useParams();
     useEffect(() => {
@@ -24,12 +25,13 @@ const ModuleList = (
                                       item={module}
                                       updateItem={updateModule}
                                       deleteItem={deleteModule}
+                                      createModule={createModule}
                         />
                     </li>
                 )
             }
             <li className="list-group-item wbdv-group-item-add">New Module
-                <i className="pull-right fa fa-plus wbdv-list-delete-icon"/>
+                <i onClick={() => createModule(courseId)} className="pull-right fa fa-plus wbdv-list-delete-icon"/>
             </li>
         </ul>
     )
@@ -61,6 +63,13 @@ const dtpm = (dispatch) => {
                 .then(status => dispatch({
                     type: "UPDATE_MODULE",
                     module
+                }))
+        },
+        createModule: (courseId) => {
+            moduleService.createModuleForCourse(courseId, {title: "New Module"})
+                .then(createdModule => dispatch({
+                    type: "CREATE_MODULE",
+                    module: createdModule
                 }))
         }
     }

@@ -11,6 +11,13 @@ const moduleReducer = (state = initialState, action) => {
                 ...state,
                 modules: action.modules
             }
+        case "CREATE_MODULE":
+            return {
+                modules: [
+                    ...state.modules,
+                    action.module
+                ]
+            }
         case "DELETE_MODULE":
             return {
                 modules: state.modules.filter(module => {

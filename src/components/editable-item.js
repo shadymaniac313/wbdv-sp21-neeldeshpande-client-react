@@ -17,16 +17,16 @@ const EditableItem = ({
             {
                 !editing &&
                 <>
-                    <div className={`row`}>
-                        <div className={"col"}>
+                    {/*<div className={`row`}>*/}
+                    {/*    <div className={"col"}>*/}
                             <Link className={`nav-link`} to={to}>
                                 {item.title}
                             </Link>
-                        </div>
-                        <div className={"col"}>
+                        {/*</div>*/}
+                        {/*<div className={"col"}>*/}
                             <i onClick={() => setEditing(true)} className="pull-right fas fa-edit wbdv-list-delete-icon"/>
-                        </div>
-                    </div>
+                        {/*</div>*/}
+                    {/*</div>*/}
                 </>
             }
             {

@@ -116,3 +116,7 @@
 .wbdv-course-grid-content {
     margin-left: 1rem;
 }
+
+.nav-link {
+    display: inline;
+}

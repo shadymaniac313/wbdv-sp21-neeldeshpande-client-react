@@ -2,26 +2,23 @@ import React from "react";
 import ModuleList from "./module-list";
 import {Link, useParams} from "react-router";
 import moduleReducer from "../../reducers/module-reducer"
+import lessonReducer from "../../reducers/lesson-reducer";
 import {combineReducers, createStore,} from "redux";
 import courseService from "../../services/course-service"
 import {Provider} from "react-redux"
+import LessonTabs from "../course-editor/lesson-tabs"
 
 import "../../styles/course-editor.style.client.css"
 
 const reducer = combineReducers({
-    moduleReducer: moduleReducer
+    moduleReducer: moduleReducer,
+    lessonReducer: lessonReducer
 })
 
 const store = createStore(reducer)
 
 const CourseEditor = ({history}) => {
     const {layout, courseId, moduleId} = useParams();
-    console.log(moduleId)
-    // const selectedCourse = courseService.findCourseById(courseId)
-    //     .then((returnedCourse) => {
-    //         return returnedCourse.json()
-    //     })
-    // console.log(selectedCourse)
 
     return (
         <Provider store={store}>
@@ -31,7 +28,7 @@ const CourseEditor = ({history}) => {
                     <div className="wbdv-sticky-top-editor">
                         <div className="row">
                             <div className="wbdv-editor-head-icon wbdv-sticky-top-content">
-                                <i className="fa fa-arrow-left fa-2x wbdv-sticky-top-content"
+                                <i className="fa fa-times fa-2x wbdv-sticky-top-content"
                                    onClick={() => history.goBack()}
                                 />
                             </div>
@@ -41,37 +38,7 @@ const CourseEditor = ({history}) => {
                                 </div>
                             </div>
                             <div className="col-9">
-                                <ul className="nav nav-tabs">
-                                    <li className="nav-item">
-                                        <a className="nav-link active" aria-current="page" href="#">
-                                            Build
-                                        </a>
-                                    </li>
-                                    <li className="nav-item">
-                                        <a className="nav-link" href="#">Pages</a>
-                                    </li>
-                                    <li className="nav-item">
-                                        <a className="nav-link" href="#">Theme</a>
-                                    </li>
-                                    <li className="nav-item">
-                                        <a className="nav-link" href="#">Store</a>
-                                    </li>
-                                    <li className="nav-item">
-                                        <a className="nav-link" href="#">Apps</a>
-                                    </li>
-                                    <li className="nav-item">
-                                        <a className="nav-link" href="#">Settings</a>
-                                    </li>
-                                    <li className="nav-item">
-                                        <a className="nav-link disabled" href="#" tabIndex={-1}
-                                           aria-disabled="true">Privacy</a>
-                                    </li>
-                                    <li className="nav-item">
-                                        <a className="nav-link disabled" href="#" tabIndex={-1} aria-disabled="true">
-                                            <i className="fa fa-plus"/>
-                                        </a>
-                                    </li>
-                                </ul>
+                                <LessonTabs/>
                             </div>
                         </div>
                     </div>

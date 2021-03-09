@@ -37,7 +37,7 @@ const CourseEditor = ({history}) => {
                                     <h4 className="wbdv-editor-head-title-text"></h4>
                                 </div>
                             </div>
-                            <div className="col-9">
+                            <div className="col-9 wbdv-editor-lesson-tabs-div">
                                 <LessonTabs/>
                             </div>
                         </div>

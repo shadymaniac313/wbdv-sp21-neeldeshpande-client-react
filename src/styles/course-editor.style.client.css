@@ -82,6 +82,14 @@
     background-color: #2d467d !important;
 }
 
+.wbdv-editor-lesson-tabs .nav-item .wbdv-edit-icon {
+    display: none;
+}
+
+.wbdv-editor-lesson-tabs .active .wbdv-edit-icon {
+    display: inline;
+}
+
 .list-group-item {
     background-color: #223661 !important;
     color: white;
@@ -130,4 +138,8 @@
 
 .wbdv-editor-lesson-tabs-add {
     margin-left: 1rem;
+}
+
+.wbdv-editor-lesson-tabs-div {
+    margin-top: 0.5rem;
 }

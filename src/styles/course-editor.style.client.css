@@ -57,6 +57,7 @@
     display: inline;
     font-weight: lighter;
 }
+
 .nav-tabs, .nav-item, .nav-link {
     border: none !important;
     border-radius: 0.25rem;
@@ -78,15 +79,20 @@
     font-weight: lighter;
 }
 
-.wbdv-editor-lesson-tabs .active .nav-link {
+.wbdv-editor-lesson-tabs .active .nav-link,
+.wbdv-editor-topic-ul .active .nav-link
+{
     background-color: #2d467d !important;
 }
 
-.wbdv-editor-lesson-tabs .nav-item .wbdv-edit-icon {
+.wbdv-editor-lesson-tabs .nav-item .wbdv-edit-icon,
+.wbdv-editor-topic-ul .nav-item .wbdv-edit-icon {
     display: none;
 }
 
-.wbdv-editor-lesson-tabs .active .wbdv-edit-icon {
+.wbdv-editor-lesson-tabs .active .wbdv-edit-icon,
+.wbdv-editor-topic-ul .active .wbdv-edit-icon
+{
     display: inline;
 }
 
@@ -141,5 +147,19 @@
 }
 
 .wbdv-editor-lesson-tabs-div {
+    margin-top: 0.5rem;
+}
+
+.wbdv-editor-topics-add {
+    color: white;
+    margin-left: 1rem;
+    margin-top: 0.75rem;
+}
+
+.wbdv-editor-topic-ul {
+    height: 40px;
+}
+
+.wbdv-editor-topic-ul .nav-item div {
     margin-top: 0.5rem;
 }

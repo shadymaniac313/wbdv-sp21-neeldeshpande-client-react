@@ -24,14 +24,14 @@ const TopicPills = ({
     }, [moduleId, lessonId])
 
     return (
-        <ul className="nav nav-pills wbdv-editor-nav-pills">
+        <ul className="nav nav-pills wbdv-editor-nav-pills wbdv-editor-topic-ul">
             {
                 topics.map(topic =>
-                    <li className="nav-item">
+                    <li className={`nav-item ${topic._id === topicId ? 'active' : ''}`}>
                         <EditableItem
                             key={topic._id}
                             active={topic._id === topicId}
-                            tp={`/courses/edit/${courseId}/module/${moduleId}/lessons/${lessonId}/topics/${topic._id}`}
+                            to={`/courses/edit/${courseId}/module/${moduleId}/lesson/${lessonId}/topic/${topic._id}`}
                             item={topic}
                             updateItem={updateTopic}
                             deleteItem={deleteTopic}
@@ -41,7 +41,7 @@ const TopicPills = ({
             }
             <li>
                 <i onClick={() => createTopic(lessonId)}
-                   className="wbdv-editor-lesson-tabs-add pull-right fas fa-plus"/>
+                   className="wbdv-editor-topics-add pull-right fas fa-plus"/>
             </li>
         </ul>
     )

@@ -3,16 +3,19 @@ import ModuleList from "./module-list";
 import {Link, useParams} from "react-router";
 import moduleReducer from "../../reducers/module-reducer"
 import lessonReducer from "../../reducers/lesson-reducer";
+import topicReducer from "../../reducers/topic-reducer"
 import {combineReducers, createStore,} from "redux";
 import courseService from "../../services/course-service"
 import {Provider} from "react-redux"
 import LessonTabs from "../course-editor/lesson-tabs"
+import TopicPills from "../course-editor/topic-pills"
 
 import "../../styles/course-editor.style.client.css"
 
 const reducer = combineReducers({
     moduleReducer: moduleReducer,
-    lessonReducer: lessonReducer
+    lessonReducer: lessonReducer,
+    topicReducer: topicReducer
 })
 
 const store = createStore(reducer)
@@ -34,7 +37,7 @@ const CourseEditor = ({history}) => {
                             </div>
                             <div className="col-2 wbdv-editor-head-title">
                                 <div className="wbdv-sticky-top-content wbdv-editor-head-title">
-                                    <h4 className="wbdv-editor-head-title-text"></h4>
+                                    <h4 className="wbdv-editor-head-title-text"/>
                                 </div>
                             </div>
                             <div className="col-9 wbdv-editor-lesson-tabs-div">
@@ -47,26 +50,7 @@ const CourseEditor = ({history}) => {
                             <ModuleList/>
                         </div>
                         <div className="col-md-10 wbdv-editor-content">
-                            <ul className="nav nav-pills wbdv-editor-nav-pills">
-                                <li className="nav-item">
-                                    <a className="nav-link active" aria-current="page" href="#">Topic 1</a>
-                                </li>
-                            <li className="nav-item">
-                                    <a className="nav-link" href="#">Topic 2</a>
-                                </li>
-                                <li className="nav-item">
-                                    <a className="nav-link" href="#">Topic 3</a>
-                                </li>
-                                <li className="nav-item">
-                                    <a className="nav-link" href="#">Topic 4</a>
-                                </li>
-                                <li className="nav-item">
-                                    <a className="nav-link disabled" href="#" tabIndex={-1} aria-disabled="true">
-                                        Topic 5
-                                        <i className="fa fa-lock"/>
-                                    </a>
-                                </li>
-                            </ul>
+                           <TopicPills/>
                         </div>
                     </div>
                 </div>

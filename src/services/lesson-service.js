@@ -1,7 +1,7 @@
 const MODULES_URL = "https://wbdv-generic-server.herokuapp.com/api/001327792/modules";
 const LESSON_URL = "https://wbdv-generic-server.herokuapp.com/api/001327792/lessons"
 
-const createLessonForModule = (moduleId, lesson) =>
+const createLesson = (moduleId, lesson) =>
     fetch(`${MODULES_URL}/${moduleId}/lessons`, {
         method: "POST",
         body: JSON.stringify(lesson),
@@ -37,7 +37,7 @@ const deleteLesson = (lessonId) =>
 
 const api = {
     findLessonsForModule: findLessonsForModule,
-    createLessonForModule: createLessonForModule,
+    createLesson: createLesson,
     findLesson: findLesson,
     updateLesson: updateLesson,
     deleteLesson: deleteLesson

@@ -2,13 +2,12 @@ import React, {useEffect} from "react";
 import {connect} from "react-redux";
 import EditableItem from "../editable-item";
 import {useParams} from "react-router";
-import Button from "bootstrap/js/src/button";
 import lessonService from "../../services/lesson-service"
 
 const LessonTabs = ({
                         lessons = [],
                         findLessonsForModule = (moduleId) => console.log(moduleId),
-                        createLessonForModule,
+                        createLesson,
                         updateLesson,
                         deleteLesson
                     }) => {
@@ -35,7 +34,8 @@ const LessonTabs = ({
                 )
             }
             <li>
-                <i onClick={() => createLessonForModule(moduleId)} className="wbdv-editor-lesson-tabs-add pull-right fas fa-plus"/>
+                <i onClick={() => createLesson(moduleId)}
+                   className="wbdv-editor-lesson-tabs-add pull-right fas fa-plus"/>
             </li>
         </ul>
     )
@@ -57,8 +57,8 @@ const dtpm = (dispatch) => {
                     lessons: fetchedLessons
                 }))
         },
-        createLessonForModule: (moduleId) => {
-            lessonService.createLessonForModule(moduleId, {title: "New Lesson"})
+        createLesson: (moduleId) => {
+            lessonService.createLesson(moduleId, {title: "New Lesson"})
                 .then(createdLesson => dispatch({
                     type: "CREATE_LESSON",
                     lesson: createdLesson

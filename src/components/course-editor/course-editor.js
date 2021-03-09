@@ -1,11 +1,10 @@
 import React from "react";
 import ModuleList from "./module-list";
-import {Link, useParams} from "react-router";
+import {useParams} from "react-router";
 import moduleReducer from "../../reducers/module-reducer"
 import lessonReducer from "../../reducers/lesson-reducer";
 import topicReducer from "../../reducers/topic-reducer"
 import {combineReducers, createStore,} from "redux";
-import courseService from "../../services/course-service"
 import {Provider} from "react-redux"
 import LessonTabs from "../course-editor/lesson-tabs"
 import TopicPills from "../course-editor/topic-pills"

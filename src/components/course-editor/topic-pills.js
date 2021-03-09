@@ -13,12 +13,6 @@ const TopicPills = ({
                     }) => {
     const {courseId, moduleId, lessonId, topicId} = useParams()
 
-    console.log("testtttttttttttt")
-    console.log(courseId)
-    console.log(moduleId)
-    console.log(lessonId)
-    console.log(topicId)
-
     useEffect(() => {
         findTopicsForLesson(lessonId)
     }, [moduleId, lessonId])

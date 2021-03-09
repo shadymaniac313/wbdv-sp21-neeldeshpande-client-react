@@ -5,7 +5,8 @@ import '../../styles/course-manager.style.client.css'
 import CourseStickyTop from "./course-manager-sticky-top";
 import CourseGrid from "../course-grid/course-grid";
 import CourseEditor from "../course-editor/course-editor";
-import {Route} from "react-router";
+import {BrowserRouter as Router, Route} from "react-router-dom";
+// import {Route} from "react-router";
 
 export default class CourseManager extends React.Component {
     state = {
@@ -24,7 +25,7 @@ export default class CourseManager extends React.Component {
                 this.state.courses.push(actualCourse)
                 this.setState(this.state)
             })
-        this.setState((prevState)=>({
+        this.setState((prevState) => ({
             ...prevState,
             searchValue: ''
         }))
@@ -57,7 +58,7 @@ export default class CourseManager extends React.Component {
     }
 
     setSearchValue = (value) => {
-        this.setState((prevState)=> ({
+        this.setState((prevState) => ({
             ...prevState,
             searchValue: value
         }))
@@ -66,51 +67,57 @@ export default class CourseManager extends React.Component {
     render() {
         return (
             <div>
-                <div className={"row"}>
-                    <CourseStickyTop courses={this.state.courses}
-                                     addCourse={this.addCourse}
-                                     setSearchValue={this.setSearchValue}
-                                     searchValue={this.state.searchValue}
-                    />
-                </div>
-
-                <Route path={"/courses/table"} exact={true}>
-                    <div className={"container wbdv-course-table"}>
+                    <Route path={"/courses/table"} exact={true}>
                         <div className={"row"}>
-                            <CourseTable courses={this.state.courses}
-                                         deleteCourse={this.deleteCourse}
-                                         updateCourse={this.updateCourse}
+                            <CourseStickyTop courses={this.state.courses}
+                                             addCourse={this.addCourse}
+                                             setSearchValue={this.setSearchValue}
+                                             searchValue={this.state.searchValue}
                             />
                         </div>
-                    </div>
-                </Route>
-                <Route path={"/courses/grid"} exact={true}>
-                    <div className={"container wbdv-course-grid"}>
-                        <CourseGrid courses={this.state.courses}
-                                    title={"test"}
-                                    updateCourse={this.updateCourse}
-                                    deleteCourse={this.deleteCourse}
+                        <div className={"container wbdv-course-table"}>
+                            <div className={"row"}>
+                                <CourseTable courses={this.state.courses}
+                                             deleteCourse={this.deleteCourse}
+                                             updateCourse={this.updateCourse}
+                                />
+                            </div>
+                        </div>
+                    </Route>
+                    <Route path={"/courses/grid"} exact={true}>
+                        <div className={"row"}>
+                            <CourseStickyTop courses={this.state.courses}
+                                             addCourse={this.addCourse}
+                                             setSearchValue={this.setSearchValue}
+                                             searchValue={this.state.searchValue}
+                            />
+                        </div>
+                        <div className={"container wbdv-course-grid"}>
+                            <CourseGrid courses={this.state.courses}
+                                        title={"test"}
+                                        updateCourse={this.updateCourse}
+                                        deleteCourse={this.deleteCourse}
+                            />
+                        </div>
+                    </Route>
+                    <Route path={[
+                        "/courses/:layout/edit/:courseId",
+                        "/courses/edit/:courseId/module/:moduleId",
+                        "/courses/edit/:courseId/module/:moduleId/lesson/:lessonId",
+                        "/courses/edit/:courseId/module/:moduleId/lesson/:lessonId/topic/:topicId"
+                    ]}
+                           exact={true}
+                           render={(props) => <CourseEditor {...props}/>}>
+                    </Route>
+                    <a href="#" className={"float"}>
+                        <i className={"fa fa-plus wbdv-add-icon-float fa-2x"}
+                           onClick={() => this.addCourse({
+                               title: this.state.searchValue,
+                               owner: "me",
+                               lastModified: "1/1/2021"
+                           })}
                         />
-                    </div>
-                </Route>
-                <Route path={[
-                    "/courses/:layout/edit/:courseId",
-                    "/courses/edit/:courseId/module/:moduleId",
-                    "/courses/edit/:courseId/module/:moduleId/lesson/:lessonId",
-                    "/courses/edit/:courseId/module/:moduleId/lesson/:lessonId/topic/:topicId"
-                ]}
-                       exact={true}
-                       render={(props) => <CourseEditor {...props}/>}>
-                </Route>
-                <a href="#" className={"float"}>
-                    <i className={"fa fa-plus wbdv-add-icon-float fa-2x"}
-                       onClick={() => this.addCourse({
-                           title: this.state.searchValue,
-                           owner: "me",
-                           lastModified: "1/1/2021"
-                       })}
-                    />
-                </a>
+                    </a>
             </div>
         )
     }

@@ -57,7 +57,6 @@
     display: inline;
     font-weight: lighter;
 }
-
 .nav-tabs, .nav-item, .nav-link {
     border: none !important;
     border-radius: 0.25rem;
@@ -73,10 +72,14 @@
     margin-top: 4px;
 }
 
-.nav-link.active {
+.active.nav-link {
     background-color: #007bff !important;
     color: white !important;
     font-weight: lighter;
+}
+
+.wbdv-editor-lesson-tabs .active .nav-link {
+    background-color: #2d467d !important;
 }
 
 .list-group-item {
@@ -89,6 +92,10 @@
 .list-group-item.active {
     border-color: gray;
     margin-top: 5% !important;
+}
+
+.wbdv-editor-lesson-tabs.active {
+    background-color: #223661 !important;
 }
 
 .wbdv-list-delete-icon {
@@ -119,4 +126,8 @@
 
 .nav-link {
     display: inline;
+}
+
+.wbdv-editor-lesson-tabs-add {
+    margin-left: 1rem;
 }

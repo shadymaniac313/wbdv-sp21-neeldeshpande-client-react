@@ -34,7 +34,7 @@ const CourseEditor = ({history}) => {
                             </div>
                             <div className="col-2 wbdv-editor-head-title">
                                 <div className="wbdv-sticky-top-content wbdv-editor-head-title">
-                                    <h4 className="wbdv-editor-head-title-text">{courseId}</h4>
+                                    <h4 className="wbdv-editor-head-title-text"></h4>
                                 </div>
                             </div>
                             <div className="col-9">
@@ -51,7 +51,7 @@ const CourseEditor = ({history}) => {
                                 <li className="nav-item">
                                     <a className="nav-link active" aria-current="page" href="#">Topic 1</a>
                                 </li>
-                                <li className="nav-item">
+                            <li className="nav-item">
                                     <a className="nav-link" href="#">Topic 2</a>
                                 </li>
                                 <li className="nav-item">

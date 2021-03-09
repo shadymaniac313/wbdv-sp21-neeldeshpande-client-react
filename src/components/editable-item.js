@@ -10,23 +10,17 @@ const EditableItem = ({
                       }) => {
 
     const [editing, setEditing] = useState(false)
-    const [cachedItem, setCahedItem] = useState(item)
+    const [cachedItem, setCachedItem] = useState(item)
 
     return (
         <>
             {
                 !editing &&
                 <>
-                    {/*<div className={`row`}>*/}
-                    {/*    <div className={"col"}>*/}
-                            <Link className={`nav-link`} to={to}>
-                                {item.title}
-                            </Link>
-                        {/*</div>*/}
-                        {/*<div className={"col"}>*/}
-                            <i onClick={() => setEditing(true)} className="pull-right fas fa-edit wbdv-list-delete-icon"/>
-                        {/*</div>*/}
-                    {/*</div>*/}
+                    <Link className={`nav-link`} to={to}>
+                        {item.title}
+                    </Link>
+                    <i onClick={() => setEditing(true)} className="pull-right fas fa-edit wbdv-list-delete-icon"/>
                 </>
             }
             {
@@ -34,7 +28,7 @@ const EditableItem = ({
                 <>
                     <input
                         onChange={(e) =>
-                            setCahedItem({
+                            setCachedItem({
                                 ...cachedItem,
                                 title: e.target.value
                             })}

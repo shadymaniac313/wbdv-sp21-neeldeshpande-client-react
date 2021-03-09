@@ -1,4 +1,5 @@
 const MODULES_URL = "https://wbdv-generic-server.herokuapp.com/api/001327792/modules";
+const LESSON_URL = "https://wbdv-generic-server.herokuapp.com/api/001327792/lessons"
 
 const createLessonForModule = (moduleId, lesson) =>
     fetch(`${MODULES_URL}/${moduleId}/lessons`, {
@@ -19,7 +20,7 @@ const findLesson = (lessonId) =>
         .then(response => response.json())
 
 const updateLesson = (lessonId, lesson) =>
-    fetch(`${MODULES_URL}/lessons/${lessonId}`, {
+    fetch(`${LESSON_URL}/${lessonId}`, {
         method: "PUT",
         body: JSON.stringify(lesson),
         headers: {
@@ -29,9 +30,10 @@ const updateLesson = (lessonId, lesson) =>
 
 
 const deleteLesson = (lessonId) =>
-    fetch(`${MODULES_URL}/lessons/${lessonId}`, {
+    fetch(`${LESSON_URL}/${lessonId}`, {
         method: "DELETE"
-    }).then(response => response.json())
+    })
+        .then(response => response.json())
 
 const api = {
     findLessonsForModule: findLessonsForModule,

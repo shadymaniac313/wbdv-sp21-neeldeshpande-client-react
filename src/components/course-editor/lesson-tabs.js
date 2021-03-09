@@ -2,12 +2,15 @@ import React, {useEffect} from "react";
 import {connect} from "react-redux";
 import EditableItem from "../editable-item";
 import {useParams} from "react-router";
+import Button from "bootstrap/js/src/button";
 import lessonService from "../../services/lesson-service"
 
 const LessonTabs = ({
                         lessons = [],
                         findLessonsForModule = (moduleId) => console.log(moduleId),
-                        createLessonForModule
+                        createLessonForModule,
+                        updateLesson,
+                        deleteLesson
                     }) => {
     const {courseId, moduleId, lessonId} = useParams();
 
@@ -16,21 +19,26 @@ const LessonTabs = ({
     }, [moduleId])
 
     return (
-        <ul className="nav nav-tabs">
+        <ul className="nav nav-tabs wbdv-editor-lesson-tabs">
             {
                 lessons.map(lesson =>
-                    <li className="nav-item">
+                    <li className={`nav-item ${lesson._id === lessonId ? 'active' : ''}`}>
                         <EditableItem
                             key={lesson._id}
                             active={lesson._id === lessonId}
                             to={`/courses/edit/${courseId}/module/${moduleId}/lessons/${lesson._id}`}
-                            item={lesson}/>
+                            item={lesson}
+                            updateItem={updateLesson}
+                            deleteItem={deleteLesson}
+                        />
                     </li>
                 )
             }
+            <li>
+                <i onClick={() => createLessonForModule(moduleId)} className="wbdv-editor-lesson-tabs-add pull-right fas fa-plus"/>
+            </li>
         </ul>
     )
-
 }
 
 const stpm = (state) => {
@@ -38,6 +46,7 @@ const stpm = (state) => {
         lessons: state.lessonReducer.lessons
     }
 }
+
 
 const dtpm = (dispatch) => {
     return {
@@ -47,7 +56,28 @@ const dtpm = (dispatch) => {
                     type: "FIND_LESSONS_FOR_MODULE",
                     lessons: fetchedLessons
                 }))
-        }
+        },
+        createLessonForModule: (moduleId) => {
+            lessonService.createLessonForModule(moduleId, {title: "New Lesson"})
+                .then(createdLesson => dispatch({
+                    type: "CREATE_LESSON",
+                    lesson: createdLesson
+                }))
+        },
+        updateLesson: (lesson) => {
+            lessonService.updateLesson(lesson._id, lesson)
+                .then(status => dispatch({
+                    type: "UPDATE_LESSON",
+                    lesson
+                }))
+        },
+        deleteLesson: (lesson) =>
+            lessonService.deleteLesson(lesson._id)
+                .then(status => dispatch({
+                    type: "DELETE_LESSON",
+                    lessonToDelete: lesson
+                }))
+
     }
 }
 

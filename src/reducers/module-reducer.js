@@ -1,7 +1,5 @@
 const initialState = {
-    modules: [
-        {_id: 123, title: "XYZ"}
-    ]
+    modules: []
 }
 
 const moduleReducer = (state = initialState, action) => {

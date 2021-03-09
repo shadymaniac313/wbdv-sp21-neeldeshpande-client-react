@@ -40,7 +40,7 @@ const TopicPills = ({
                 )
             }
             <li>
-                <i onClick={() => createTopic(topicId)}
+                <i onClick={() => createTopic(lessonId)}
                    className="wbdv-editor-lesson-tabs-add pull-right fas fa-plus"/>
             </li>
         </ul>

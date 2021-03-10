@@ -23,7 +23,6 @@ const store = createStore(reducer)
 const CourseEditor = ({history}) => {
     const {layout, courseId, moduleId} = useParams();
     const [courseTitle, setCourseTitle] = useState("");
-    console.log(courseId)
 
     const getTitle = (courseId) => {
         courseService.findCourseById(courseId)

@@ -25,7 +25,7 @@ const TopicPills = ({
                         <EditableItem
                             key={topic._id}
                             active={topic._id === topicId}
-                            to={`/courses/edit/${courseId}/module/${moduleId}/lesson/${lessonId}/topic/${topic._id}`}
+                            to={`/courses/edit/${courseId}/modules/${moduleId}/lessons/${lessonId}/topics/${topic._id}`}
                             item={topic}
                             updateItem={updateTopic}
                             deleteItem={deleteTopic}

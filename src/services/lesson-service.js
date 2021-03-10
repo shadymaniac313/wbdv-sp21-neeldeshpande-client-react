@@ -16,7 +16,7 @@ const findLessonsForModule = (moduleId) =>
         .then(response => response.json())
 
 const findLesson = (lessonId) =>
-    fetch(`${MODULES_URL}/lessons/${lessonId}`)
+    fetch(`${LESSON_URL}/lessons/${lessonId}`)
         .then(response => response.json())
 
 const updateLesson = (lessonId, lesson) =>

@@ -25,7 +25,7 @@ const LessonTabs = ({
                         <EditableItem
                             key={lesson._id}
                             active={lesson._id === lessonId}
-                            to={`/courses/edit/${courseId}/module/${moduleId}/lesson/${lesson._id}`}
+                            to={`/courses/edit/${courseId}/modules/${moduleId}/lessons/${lesson._id}`}
                             item={lesson}
                             updateItem={updateLesson}
                             deleteItem={deleteLesson}

@@ -1,3 +1,5 @@
+import {act} from "@testing-library/react";
+
 const initialState = {
     lessons: []
 }
@@ -8,6 +10,10 @@ const lessonReducer = (state = initialState, action) => {
             return {
                 ...state,
                 lessons: action.lessons
+            }
+        case "FIND_LESSON":
+            return {
+                lesson: action.lesson
             }
         case "CREATE_LESSON":
             return {

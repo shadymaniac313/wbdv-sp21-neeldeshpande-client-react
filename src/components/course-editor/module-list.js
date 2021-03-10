@@ -22,7 +22,7 @@ const ModuleList = (
                 modules.map(module =>
                     <li className={`list-group-item ${module._id === moduleId ? 'active' : ''}`}>
                         <EditableItem key={module._id}
-                                      to={`/courses/edit/${courseId}/module/${module._id}`}
+                                      to={`/courses/edit/${courseId}/modules/${module._id}`}
                                       item={module}
                                       updateItem={updateModule}
                                       deleteItem={deleteModule}
@@ -78,7 +78,7 @@ const dtpm = (dispatch) => {
                 }))
         },
         createModule: (courseId) => {
-            moduleService.createModuleForCourse(courseId, {title: "New Module"})
+            moduleService.createModule(courseId, {title: "New Module"})
                 .then(createdModule => dispatch({
                     type: "CREATE_MODULE",
                     module: createdModule

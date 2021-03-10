@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import ModuleList from "./module-list";
 import {useParams} from "react-router";
 import moduleReducer from "../../reducers/module-reducer"
@@ -8,6 +8,7 @@ import {combineReducers, createStore,} from "redux";
 import {Provider} from "react-redux"
 import LessonTabs from "../course-editor/lesson-tabs"
 import TopicPills from "../course-editor/topic-pills"
+import courseService from "../../services/course-service"
 
 import "../../styles/course-editor.style.client.css"
 
@@ -21,6 +22,15 @@ const store = createStore(reducer)
 
 const CourseEditor = ({history}) => {
     const {layout, courseId, moduleId} = useParams();
+    const [courseTitle, setCourseTitle] = useState("");
+    console.log(courseId)
+
+    const getTitle = (courseId) => {
+        courseService.findCourseById(courseId)
+            .then(fetchedCourse => setCourseTitle(fetchedCourse.title));
+    }
+
+    useEffect(() => getTitle(courseId))
 
     return (
         <Provider store={store}>
@@ -36,7 +46,7 @@ const CourseEditor = ({history}) => {
                             </div>
                             <div className="col-2 wbdv-editor-head-title">
                                 <div className="wbdv-sticky-top-content wbdv-editor-head-title">
-                                    <h4 className="wbdv-editor-head-title-text"/>
+                                    <h4 className="wbdv-editor-head-title-text">{courseTitle}</h4>
                                 </div>
                             </div>
                             <div className="col-9 wbdv-editor-lesson-tabs-div">

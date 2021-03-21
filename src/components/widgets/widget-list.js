@@ -18,7 +18,7 @@ const WidgetList = ({
         findWidgets(topicId)
     }, [moduleId, lessonId, topicId])
 
-    const [editingWidget, setEditingWidget] = useState(false)
+    const [editingWidget, setEditingWidget] = useState({})
 
     return (
         <div>
@@ -31,17 +31,18 @@ const WidgetList = ({
                             {
                                 editingWidget.id === widget.id &&
                                 <>
-                                    <i onClick={() => {
-                                        updateWidget(widget.id, editingWidget)
-                                    }} className="fas fa-2x fa-check float-right"/>
-                                    <i onClick={() => deleteWidget(widget.id)}
-                                       className="fas fa-2x fa-trash float-right"/>
+                                    <i
+                                        onClick={() => updateWidget(editingWidget)}
+                                        className="fas fa-2x fa-check float-right"/>
+                                    <i
+                                        onClick={() => deleteWidget(editingWidget)}
+                                        className="fas fa-2x fa-trash float-right"/>
                                 </>
                             }
                             {
                                 editingWidget.id !== widget.id &&
                                 <i onClick={() => setEditingWidget(widget)}
-                                   className="fas fa-2x fa-cog float-right"/>
+                                   className="fas fa-cog float-right"/>
                             }
                             {
                                 widget.type === "HEADING" &&
@@ -59,7 +60,6 @@ const WidgetList = ({
                     )
                 }
             </ul>
-            {JSON.stringify(widgets)}
         </div>
     )
 }
@@ -91,12 +91,16 @@ const dtpm = (dispatch) => {
                 }))
         },
         updateWidget: (widget) => {
-            widgetService.updateWidget(widget.id, widget)
+            console.log("logging from update widget")
+            console.log(widget.id)
+            return widgetService.updateWidget(widget.id, widget)
                 .then(status => dispatch({
-                    type: "UPDATE_TOPIC",
+                    type: "UPDATE_WIDGET",
                     widget
+
                 }))
-        },
+        }
+        ,
         deleteWidget: (widget) =>
             widgetService.deleteWidget(widget.id)
                 .then(status => dispatch({

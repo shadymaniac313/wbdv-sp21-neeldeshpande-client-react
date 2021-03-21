@@ -9,6 +9,7 @@ import {Provider} from "react-redux"
 import LessonTabs from "../course-editor/lesson-tabs"
 import TopicPills from "../course-editor/topic-pills"
 import courseService from "../../services/course-service"
+import widgetService from "../../services/widget-service"
 
 import "../../styles/course-editor.style.client.css"
 
@@ -27,6 +28,8 @@ const CourseEditor = ({history}) => {
     const getTitle = (courseId) => {
         courseService.findCourseById(courseId)
             .then(fetchedCourse => setCourseTitle(fetchedCourse.title));
+        widgetService.findAllWidgets()
+            .then((widgets) => widgets.map(widget => console.log(widget.id)))
     }
 
     useEffect(() => getTitle(courseId))
@@ -58,7 +61,7 @@ const CourseEditor = ({history}) => {
                             <ModuleList/>
                         </div>
                         <div className="col-md-10 wbdv-editor-content">
-                           <TopicPills/>
+                            <TopicPills/>
                         </div>
                     </div>
                 </div>

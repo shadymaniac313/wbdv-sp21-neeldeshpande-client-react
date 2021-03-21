@@ -21,9 +21,11 @@ const WidgetList = ({
     const [editingWidget, setEditingWidget] = useState({})
 
     return (
-        <div>
-            <i onClick={() => createWidgetForTopic(topicId)} className="fas fa-plus fa-2x float-right"/>
-            <h2>Widget List ({widgets.length}) {editingWidget.id}</h2>
+        <div className={"wbdv-widget-list"}>
+            <button
+                onClick={() => createWidgetForTopic(topicId)}
+                className="wbdv-widget-list-add wbdv-editor-widget-list-btn fas fa-plus fa-2x float-right"
+            />
             <ul className="list-group">
                 {
                     widgets.map(widget =>
@@ -31,21 +33,21 @@ const WidgetList = ({
                             {
                                 editingWidget.id === widget.id &&
                                 <>
-                                    <i
+                                    <button
                                         onClick={() => {
                                             updateWidget(editingWidget)
                                             setEditingWidget({})
                                         }}
-                                        className="fas fa-2x fa-check float-right"/>
-                                    <i
+                                        className="fas fa-check float-right wbdv-editor-widget-list-btn"/>
+                                    <button
                                         onClick={() => deleteWidget(editingWidget)}
-                                        className="fas fa-2x fa-trash float-right"/>
+                                        className="fas fa-trash float-right wbdv-editor-widget-list-btn"/>
                                 </>
                             }
                             {
                                 editingWidget.id !== widget.id &&
-                                <i onClick={() => setEditingWidget(widget)}
-                                   className="fas fa-cog float-right"/>
+                                <button onClick={() => setEditingWidget(widget)}
+                                   className="fas fa-cog float-right wbdv-editor-widget-list-btn"/>
                             }
                             {
                                 widget.type === "HEADING" &&

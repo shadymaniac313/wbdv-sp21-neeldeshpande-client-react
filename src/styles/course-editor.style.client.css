@@ -162,3 +162,23 @@
 .wbdv-editor-topic-ul .nav-item div {
     margin-top: 0.5rem;
 }
+
+.wbdv-widget-list {
+    margin-right: 1rem;
+}
+
+.wbdv-editor-widget-list-btn {
+    background: none;
+    border: none;
+    color: white;
+    margin-bottom: 0.5rem;
+}
+
+.wbdv-widget-list-add {
+    color: #223661;
+}
+
+.wbdv-widget-list .list-group-item, .wbdv-widgetlist-edit-content {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}

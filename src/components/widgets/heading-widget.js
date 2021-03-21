@@ -15,7 +15,8 @@ const HeadingWidget = ({widget, editing}) => {
                             })
                             widget.type = e.target.value
                         }}
-                        value={cachedWidget.type} className="form-control">
+                        value={cachedWidget.type}
+                        className="form-control wbdv-widgetlist-edit-content">
                         <option value={"HEADING"}>Heading</option>
                         <option value={"PARAGRAPH"}>Paragraph</option>
                     </select>
@@ -28,7 +29,7 @@ const HeadingWidget = ({widget, editing}) => {
                             widget.text = e.target.value
                         }}
                         value={cachedWidget.text}
-                        className="form-control"/>
+                        className="form-control wbdv-widgetlist-edit-content"/>
                     <select
                         onChange={(e) => {
                             setCachedWidget({
@@ -37,7 +38,8 @@ const HeadingWidget = ({widget, editing}) => {
                             })
                             widget.size = e.target.value
                         }}
-                        value={cachedWidget.size} className="form-control">
+                        value={cachedWidget.size}
+                        className="form-control wbdv-widgetlist-edit-content">
                         <option value={1}>Heading 1</option>
                         <option value={2}>Heading 2</option>
                         <option value={3}>Heading 3</option>

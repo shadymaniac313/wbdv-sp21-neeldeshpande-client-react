@@ -17,7 +17,8 @@ const ParagraphWidget = ({widget, editing}) => {
                             })
                             widget.type = e.target.value
                         }}
-                        value={cachedWidget.type} className="form-control">
+                        value={cachedWidget.type}
+                        className="form-control wbdv-widgetlist-edit-content">
                         <option value={"HEADING"}>Heading</option>
                         <option value={"PARAGRAPH"}>Paragraph</option>
                     </select>
@@ -30,7 +31,7 @@ const ParagraphWidget = ({widget, editing}) => {
                             widget.text = e.target.value
                         }}
                         value={cachedWidget.text}
-                        className="form-control"
+                        className="form-control wbdv-widgetlist-edit-content"
                     />
                 </>
             }

@@ -7,6 +7,18 @@ const HeadingWidget = ({widget, editing}) => {
             {
                 editing &&
                 <>
+                    <select
+                        onChange={(e) => {
+                            setCachedWidget({
+                                ...cachedWidget,
+                                type: e.target.value
+                            })
+                            widget.type = e.target.value
+                        }}
+                        value={cachedWidget.type} className="form-control">
+                        <option value={"HEADING"}>Heading</option>
+                        <option value={"PARAGRAPH"}>Paragraph</option>
+                    </select>
                     <input
                         onChange={(e) => {
                             setCachedWidget({

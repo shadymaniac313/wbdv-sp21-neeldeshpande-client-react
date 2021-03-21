@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
 import ParagraphWidget from "./paragraph-widget";
-import HeadingWidget from "./HeadingWidget";
+import HeadingWidget from "./heading-widget";
 import {useParams} from "react-router";
 import widgetService from "../../services/widget-service"
 import {connect} from "react-redux";
@@ -12,7 +12,7 @@ const WidgetList = ({
                         updateWidget,
                         deleteWidget
                     }) => {
-    const {courseId, moduleId, lessonId, topicId, layout} = useParams()
+    const {moduleId, lessonId, topicId} = useParams()
 
     useEffect(() => {
         findWidgets(topicId)
@@ -32,7 +32,10 @@ const WidgetList = ({
                                 editingWidget.id === widget.id &&
                                 <>
                                     <i
-                                        onClick={() => updateWidget(editingWidget)}
+                                        onClick={() => {
+                                            updateWidget(editingWidget)
+                                            setEditingWidget({})
+                                        }}
                                         className="fas fa-2x fa-check float-right"/>
                                     <i
                                         onClick={() => deleteWidget(editingWidget)}

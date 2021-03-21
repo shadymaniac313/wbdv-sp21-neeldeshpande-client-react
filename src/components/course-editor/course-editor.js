@@ -4,10 +4,12 @@ import {useParams} from "react-router";
 import moduleReducer from "../../reducers/module-reducer"
 import lessonReducer from "../../reducers/lesson-reducer";
 import topicReducer from "../../reducers/topic-reducer"
+import widgetReducer from "../../reducers/widget-reducer";
 import {combineReducers, createStore,} from "redux";
 import {Provider} from "react-redux"
 import LessonTabs from "../course-editor/lesson-tabs"
 import TopicPills from "../course-editor/topic-pills"
+import WidgetList from "../widgets/widget-list";
 import courseService from "../../services/course-service"
 import widgetService from "../../services/widget-service"
 
@@ -16,7 +18,8 @@ import "../../styles/course-editor.style.client.css"
 const reducer = combineReducers({
     moduleReducer: moduleReducer,
     lessonReducer: lessonReducer,
-    topicReducer: topicReducer
+    topicReducer: topicReducer,
+    widgetReducer: widgetReducer
 })
 
 const store = createStore(reducer)
@@ -28,11 +31,13 @@ const CourseEditor = ({history}) => {
     const getTitle = (courseId) => {
         courseService.findCourseById(courseId)
             .then(fetchedCourse => setCourseTitle(fetchedCourse.title));
-        widgetService.findAllWidgets()
-            .then((widgets) => widgets.map(widget => console.log(widget.id)))
+        // widgetService.findAllWidgets()
+        //     .then((widgets) => widgets.map(widget => console.log(widget.id)))
     }
 
-    useEffect(() => getTitle(courseId))
+    useEffect(() =>
+        getTitle(courseId)
+    )
 
     return (
         <Provider store={store}>
@@ -62,6 +67,7 @@ const CourseEditor = ({history}) => {
                         </div>
                         <div className="col-md-10 wbdv-editor-content">
                             <TopicPills/>
+                            <WidgetList/>
                         </div>
                     </div>
                 </div>

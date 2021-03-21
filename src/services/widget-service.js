@@ -1,5 +1,4 @@
 import React from "react";
-import topicReducer from "../reducers/topic-reducer";
 
 const WIDGET_URL = "http://localhost:8080/api/widgets"
 const TOPIC_URL = "http://localhost:8080/api/topics"
@@ -41,12 +40,12 @@ const updateWidget = (widgetId, widget) =>
     })
         .then(status => status.json())
 
-const deleteWidget = (widgetId) => {
+const deleteWidget = (widgetId) =>
     fetch(`${WIDGET_URL}/${widgetId}`, {
         method: "DELETE"
     })
         .then(status => status.json())
-}
+
 
 const api = {
     createWidget,

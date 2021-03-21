@@ -7,7 +7,8 @@ import {connect} from "react-redux";
 
 const WidgetList = ({
                         widgets = [],
-                        findWidgets = (topicId) => console.log(topicId),
+                        findWidgetsForTopic = (topicId) => console.log(topicId),
+                        findAllWidgets,
                         createWidgetForTopic,
                         updateWidget,
                         deleteWidget
@@ -15,7 +16,7 @@ const WidgetList = ({
     const {moduleId, lessonId, topicId} = useParams()
 
     useEffect(() => {
-        findWidgets(topicId)
+        findWidgetsForTopic(topicId)
     }, [moduleId, lessonId, topicId])
 
     const [editingWidget, setEditingWidget] = useState({})
@@ -47,7 +48,7 @@ const WidgetList = ({
                             {
                                 editingWidget.id !== widget.id &&
                                 <button onClick={() => setEditingWidget(widget)}
-                                   className="fas fa-cog float-right wbdv-editor-widget-list-btn"/>
+                                        className="fas fa-cog float-right wbdv-editor-widget-list-btn"/>
                             }
                             {
                                 widget.type === "HEADING" &&
@@ -77,13 +78,25 @@ const stpm = (state) => {
 
 const dtpm = (dispatch) => {
     return {
-        findWidgets: (topicId) => {
+        findWidgetsForTopic: (topicId) => {
             widgetService.findWidgetsForTopic(topicId)
                 .then(fetchedWidgets => dispatch({
                     type: "FIND_WIDGETS_FOR_TOPIC",
                     widgets: fetchedWidgets
                 }))
         },
+        findAllWidgets: () =>
+            widgetService.findAllWidgets()
+                .then(fetchedWidgets => dispatch({
+                    type: "FIND_ALL_WIDGETS",
+                    widgets: fetchedWidgets
+                })),
+        findWidget: (widgetId) =>
+            widgetService.findWidgetById()
+                .then(fetchedWidget => dispatch({
+                    type: "FIND_WIDGET",
+                    widget: fetchedWidget
+                })),
         createWidgetForTopic: (topicId) => {
             widgetService.createWidget(topicId, {
                 type: "HEADING",

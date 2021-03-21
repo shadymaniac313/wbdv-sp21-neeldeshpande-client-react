@@ -11,8 +11,6 @@ import LessonTabs from "../course-editor/lesson-tabs"
 import TopicPills from "../course-editor/topic-pills"
 import WidgetList from "../widgets/widget-list";
 import courseService from "../../services/course-service"
-import widgetService from "../../services/widget-service"
-
 import "../../styles/course-editor.style.client.css"
 
 const reducer = combineReducers({
@@ -25,14 +23,12 @@ const reducer = combineReducers({
 const store = createStore(reducer)
 
 const CourseEditor = ({history}) => {
-    const {layout, courseId, moduleId} = useParams();
+    const {courseId} = useParams();
     const [courseTitle, setCourseTitle] = useState("");
 
     const getTitle = (courseId) => {
         courseService.findCourseById(courseId)
             .then(fetchedCourse => setCourseTitle(fetchedCourse.title));
-        // widgetService.findAllWidgets()
-        //     .then((widgets) => widgets.map(widget => console.log(widget.id)))
     }
 
     useEffect(() =>

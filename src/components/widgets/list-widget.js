@@ -65,7 +65,6 @@ const ListWidget = ({widget, setWidget, editing}) => {
                         })
                         widget.ordered = e.target.checked
                     }}
-                           // value={widget.ordered}
                         checked={widget.ordered}
                            type="checkbox"/> Ordered
                     <br/>

@@ -119,7 +119,11 @@ const dtpm = (dispatch) => {
             widgetService.createWidget(topicId, {
                 type: "HEADING",
                 size: 1,
-                text: "New Widget"
+                text: "New Widget",
+                width: 100,
+                height: 100,
+                url: "",
+                widgetOrder: 0
             })
                 .then(createdWidget => dispatch({
                     type: "CREATE_WIDGET",
@@ -127,8 +131,6 @@ const dtpm = (dispatch) => {
                 }))
         },
         updateWidget: (widget) => {
-            console.log("logging from update widget")
-            console.log(widget.id)
             return widgetService.updateWidget(widget.id, widget)
                 .then(status => dispatch({
                     type: "UPDATE_WIDGET",

@@ -1,7 +1,9 @@
 import React from "react";
 
-const WIDGET_URL = "https://lit-shore-33840.herokuapp.com/api/widgets"
-const TOPIC_URL = "https://lit-shore-33840.herokuapp.com/api/topics"
+// const WIDGET_URL = "https://lit-shore-33840.herokuapp.com/api/widgets"
+// const TOPIC_URL = "https://lit-shore-33840.herokuapp.com/api/topics"
+const WIDGET_URL = "http://localhost:8080/api/widgets"
+const TOPIC_URL = "http://localhost:8080/api/topics"
 
 
 const findAllWidgets = () =>

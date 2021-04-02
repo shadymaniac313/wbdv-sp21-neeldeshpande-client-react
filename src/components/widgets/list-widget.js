@@ -30,7 +30,7 @@ const ListWidget = ({widget, setWidget, editing}) => {
                 !editing &&
                 <>
                     {
-                        widget.ordered &&
+                        widget.widgetOrder === 1 &&
                         <ol>
                             {
                                 widget.text.split("\n").map(item => {
@@ -42,7 +42,7 @@ const ListWidget = ({widget, setWidget, editing}) => {
                         </ol>
                     }
                     {
-                        !widget.ordered &&
+                        !(widget.widgetOrder === 1) &&
                         <ul>
                             {
                                 widget.text.split("\n").map(item => {
@@ -61,11 +61,12 @@ const ListWidget = ({widget, setWidget, editing}) => {
                     <input onChange={(e) => {
                         setCachedWidget({
                             ...cachedWidget,
-                            ordered: e.target.checked
+                            widgetOrder: e.target.checked ? 1 : 0
                         })
-                        widget.ordered = e.target.checked
+                        widget.widgetOrder = e.target.checked ? 1 : 0
+                        console.log(widget)
                     }}
-                        checked={widget.ordered}
+                           checked={!!widget.widgetOrder}
                            type="checkbox"/> Ordered
                     <br/>
                     List Items

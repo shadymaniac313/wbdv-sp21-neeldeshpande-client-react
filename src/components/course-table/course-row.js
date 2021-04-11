@@ -53,6 +53,11 @@ const CourseRow = ({
             <td className={"wbdv-hide-on-minimize-s wbdv-hide-on-minimize-m wbdv-course-table-lastModified"}>
                 {course.lastModified}
             </td>
+            <td>
+                <Link to={`/courses/${course._id}/quizzes`}>
+                    Quizzes
+                </Link>
+            </td>
             <td className={"wbdv-course-table-action"}>
                 <div className={"row"}>
                     <div className="col-6">

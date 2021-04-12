@@ -13,7 +13,11 @@
 }
 
 .question-option-correct {
-    background-color: #3b5998;
+    background-color: #2c8544;
+}
+
+.question-option-incorrect {
+    background-color: #804141;
 }
 
 .question-option-wrong {

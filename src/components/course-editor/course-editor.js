@@ -11,7 +11,6 @@ import LessonTabs from "../course-editor/lesson-tabs"
 import TopicPills from "../course-editor/topic-pills"
 import WidgetList from "../widgets/widget-list";
 import courseService from "../../services/course-service"
-import "../../styles/course-editor.style.client.css"
 
 const reducer = combineReducers({
     moduleReducer: moduleReducer,

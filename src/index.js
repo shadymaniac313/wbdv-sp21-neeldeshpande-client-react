@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 import '@fortawesome/fontawesome-free/css/all.min.css'
 import './index.css';
 import 'bootstrap/dist/css/bootstrap.min.css'
+import "./styles/course-editor.style.client.css"
+import './styles/quiz.style.client.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 

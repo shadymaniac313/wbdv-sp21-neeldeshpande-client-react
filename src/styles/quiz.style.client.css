@@ -1,0 +1,29 @@
+.question {
+    margin: 0.5rem;
+}
+
+.question-option {
+    margin-top: 0;
+    margin-bottom: 0.8rem;
+    background-color: #3b5998;
+}
+
+.question-option-unselected {
+
+}
+
+.question-option-correct {
+    background-color: #3b5998;
+}
+
+.question-option-wrong {
+    background-color: #3b5998 !important;
+}
+
+.icon-correct {
+    color: #209943;
+}
+
+.icon-incorrect {
+    color: #d91e1e;
+}

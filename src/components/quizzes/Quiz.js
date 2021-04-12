@@ -14,12 +14,12 @@ const Quiz = () => {
     }, [])
 
     return (
-        <div>
+        <div className={"container-fluid"}>
             <h2>Quiz {quizId}</h2>
-            <ul>
+            <ul className={"list-group"}>
                 {
                     questions.map(question =>
-                        <li>
+                        <li className={'list-group-item question'}>
                             <Question question={question}/>
                         </li>
                     )

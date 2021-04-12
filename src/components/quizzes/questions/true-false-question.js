@@ -12,18 +12,24 @@ const TrueFalseQuestion = ({question, grading}) => {
     return (
         <div>
             <h4>
-                {question.question}
-                {
-                    JSON.stringify(answer) === question.correct &&
-                    grading &&
-                    <i className="fas fa-check pull-right icon-correct"/>
-                }
-                {
-                    JSON.stringify(answer) !== question.correct &&
-                    answer !== null &&
-                    grading &&
-                    <i className="fas fa-times pull-right icon-incorrect"/>
-                }
+                <div className={"row"}>
+                    <div className={"col"}>
+                        {question.question}
+                    </div>
+                    <div className={"col"}>
+                        {
+                            JSON.stringify(answer) === question.correct &&
+                            grading &&
+                            <i className="fas fa-check float-right icon-correct"/>
+                        }
+                        {
+                            JSON.stringify(answer) !== question.correct &&
+                            answer !== null &&
+                            grading &&
+                            <i className="fas fa-times float-right icon-incorrect"/>
+                        }
+                    </div>
+                </div>
             </h4>
 
             <div className={"container-fluid"}>

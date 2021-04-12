@@ -10,7 +10,7 @@ function App() {
     return (
         <div>
             <Router>
-                <div className="container-fluid">
+                <div>
                     <Route path="/" exact={true} component={Home}/>
                     <Route path="/courses" component={CourseManager}/>
                     <Route path="/courses/:courseId/quizzes" exact={true}>

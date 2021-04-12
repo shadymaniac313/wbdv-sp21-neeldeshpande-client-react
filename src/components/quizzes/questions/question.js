@@ -6,10 +6,6 @@ const Question = ({question}) => {
 
     const [grading, setGrading] = useState(false)
 
-    const handleGradeClicked = (e) => {
-
-    }
-
     return (
         <div>
             {
@@ -22,7 +18,9 @@ const Question = ({question}) => {
             {
                 question.type === "MULTIPLE_CHOICE" &&
                 <MultipleChoiceQuestion
-                    question={question}/>
+                    question={question}
+                    grading={grading}
+                />
             }
             <button
                 onClick={() => setGrading(!grading)}

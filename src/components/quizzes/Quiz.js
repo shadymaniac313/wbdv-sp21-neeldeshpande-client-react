@@ -14,17 +14,19 @@ const Quiz = () => {
     }, [])
 
     return (
-        <div className={"container-fluid"}>
-            <h2>Quiz {quizId}</h2>
-            <ul className={"list-group"}>
-                {
-                    questions.map(question =>
-                        <li className={'list-group-item question'}>
-                            <Question question={question}/>
-                        </li>
-                    )
-                }
-            </ul>
+        <div>
+            <h2 className={"wbdv-sticky-top-quiz"}>Quiz {quizId}</h2>
+            <div className={"container-fluid quiz-content"}>
+                <ul className={"list-group"}>
+                    {
+                        questions.map(question =>
+                            <li className={'list-group-item question'}>
+                                <Question question={question}/>
+                            </li>
+                        )
+                    }
+                </ul>
+            </div>
         </div>
     )
 }

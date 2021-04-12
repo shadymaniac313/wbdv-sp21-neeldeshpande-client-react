@@ -1,13 +1,10 @@
 import React, {useEffect, useState} from "react";
 
 const TrueFalseQuestion = ({question, grading}) => {
+
     const [answer, setAnswer] = useState(null)
     const [trueSelected, setTrueSelected] = useState(false)
     const [falseSelected, setFalseSelected] = useState(false)
-
-    useEffect(() => {
-
-    }, [grading])
 
     return (
         <div>

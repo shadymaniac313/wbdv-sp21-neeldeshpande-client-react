@@ -29,6 +29,7 @@
 .wbdv-module-list {
     padding-top: 30px;
     margin-top: 10%;
+    padding-left: 0.5rem;
 }
 
 .wbdv-content-row {
@@ -79,8 +80,7 @@
 }
 
 .wbdv-editor-lesson-tabs .active .nav-link,
-.wbdv-editor-topic-ul .active .nav-link
-{
+.wbdv-editor-topic-ul .active .nav-link {
     background-color: #2d467d !important;
 }
 
@@ -90,8 +90,7 @@
 }
 
 .wbdv-editor-lesson-tabs .active .wbdv-edit-icon,
-.wbdv-editor-topic-ul .active .wbdv-edit-icon
-{
+.wbdv-editor-topic-ul .active .wbdv-edit-icon {
     display: inline;
 }
 

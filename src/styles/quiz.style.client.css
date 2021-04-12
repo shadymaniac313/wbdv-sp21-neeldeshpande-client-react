@@ -32,6 +32,10 @@
     background-color: #2c8544;
 }
 
+.icon-correct-bright {
+    color: #45d968;
+}
+
 .question-option-incorrect {
     background-color: #804141;
 }

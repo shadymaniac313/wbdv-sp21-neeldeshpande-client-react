@@ -27,8 +27,8 @@ const MultipleChoiceQuestion = ({question, grading}) => {
                 </div>
             </h4>
 
-            <div className={"container-fluid"}>
-                <div className={"list-group question-body row"}>
+            <div>
+                <div className={"list-group question-body"}>
                     {
                         question.choices.map((choice) => {
                             return (
@@ -39,15 +39,39 @@ const MultipleChoiceQuestion = ({question, grading}) => {
                                         )
                                         : ""
                                 )}>
-                                    <input
-                                        type="radio"
-                                        name={question._id}
-                                        onClick={() => {
-                                            setAnswer(choice)
-                                        }}
-                                        value={choice}
-                                    />
-                                    {choice}
+                                    <div className={"row"}>
+
+                                        <div className={"col"}>
+                                            <input
+                                                type="radio"
+                                                name={question._id}
+                                                onClick={() => {
+                                                    setAnswer(choice)
+                                                }}
+                                                value={choice}
+                                            />
+                                            {choice}
+                                        </div>
+                                        <div className={"col"}>
+                                            {
+                                                grading &&
+                                                answer !== null &&
+                                                question.correct === choice &&
+                                                <i className={"fas fa-check float-right icon-correct-bright"}/>
+                                            }
+                                            {
+                                                grading &&
+                                                answer != null &&
+                                                <i className={"fas fa-times float-right icon-incorrect " +
+                                                (((answer !== choice) || (answer === choice && choice === question.correct)) ?
+                                                    "invisible" : "")
+                                                }
+                                                />
+                                            }
+
+                                        </div>
+                                    </div>
+
                                 </label>
                             )
                         })

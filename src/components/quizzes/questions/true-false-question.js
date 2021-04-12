@@ -29,8 +29,8 @@ const TrueFalseQuestion = ({question, grading}) => {
                 </div>
             </h4>
 
-            <div className={"container-fluid"}>
-                <div className={"list-group row"}>
+            <div>
+                <div className={"list-group"}>
                     <div
                         className={
                             "list-group-item question-option " +
@@ -42,16 +42,35 @@ const TrueFalseQuestion = ({question, grading}) => {
                                     : ""
                             )
                         }>
-                        <label><input
-                            type="radio"
-                            onClick={() => {
-                                setTrueSelected(true)
-                                setFalseSelected(false)
-                                setAnswer(true)
-                            }}
-                            name={question._id}/>
-                            true
-                        </label>
+                        <div className={"row"}>
+                            <div className={"col"}>
+                                <input
+                                    type="radio"
+                                    onClick={() => {
+                                        setTrueSelected(true)
+                                        setFalseSelected(false)
+                                        setAnswer(true)
+                                    }}
+                                    name={question._id}/>
+                                true
+                            </div>
+                            <div className={"col"}>
+                                {
+                                    grading &&
+                                    answer !== null &&
+                                    ((question.correct === JSON.stringify(true) && trueSelected) ||
+                                        (question.correct === JSON.stringify(true) && falseSelected)) &&
+                                    <i className={"fas fa-check float-right icon-correct-bright"}/>
+                                }
+                                {
+                                    grading &&
+                                    answer != null &&
+                                    question.correct !== JSON.stringify(true) && trueSelected &&
+                                    <i className={"fas fa-times float-right icon-incorrect"}/>
+                                }
+
+                            </div>
+                        </div>
                     </div>
                     <div
                         className={
@@ -63,17 +82,37 @@ const TrueFalseQuestion = ({question, grading}) => {
                                     : ""
                             )
                         }>
-                        <label><input
-                            type="radio"
-                            onClick={() => {
-                                setFalseSelected(true)
-                                setTrueSelected(false)
-                                setAnswer(false)
-                            }}
+                        <div className={"row"}>
+                            <div className={"col"}>
+                                <label><input
+                                    type="radio"
+                                    onClick={() => {
+                                        setFalseSelected(true)
+                                        setTrueSelected(false)
+                                        setAnswer(false)
+                                    }}
 
-                            name={question._id}/>
-                            false
-                        </label>
+                                    name={question._id}/>
+                                    false
+                                </label>
+                            </div>
+                            <div className={"col"}>
+                                {
+                                    grading &&
+                                    answer !== null &&
+                                    ((question.correct === JSON.stringify(false) && falseSelected) ||
+                                        (question.correct === JSON.stringify(false) && trueSelected)) &&
+                                    <i className={"fas fa-check float-right icon-correct-bright"}/>
+                                }
+                                {
+                                    grading &&
+                                    answer != null &&
+                                    question.correct !== JSON.stringify(false) && falseSelected &&
+                                    <i className={"fas fa-times float-right icon-incorrect"}/>
+                                }
+
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div className={"row"}>

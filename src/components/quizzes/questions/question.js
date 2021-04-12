@@ -25,7 +25,7 @@ const Question = ({question}) => {
             <button
                 onClick={() => setGrading(!grading)}
                 className={"btn btn-success btn-block"}
-            >Grade
+            >{grading ? "Hide Grade" : "Grade"}
             </button>
         </div>
     )

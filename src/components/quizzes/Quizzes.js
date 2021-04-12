@@ -2,7 +2,7 @@ import React, {useEffect, useState} from "react";
 import {Link, useParams} from "react-router-dom";
 import quizService from "../../services/quizzes-service"
 
-const QuizList = () => {
+const Quizzes = () => {
 
     const {courseId} = useParams()
     const [quizzes, setQuizzes] = useState([])
@@ -15,7 +15,7 @@ const QuizList = () => {
 
     return (
         <div className={"container-fluid"}>
-            <h2>QuizList</h2>
+            <h2>Quizzes</h2>
             <div className={"list-group quiz-list"}>
                 {
                     quizzes.map((quiz) => {
@@ -48,4 +48,4 @@ const QuizList = () => {
     )
 }
 
-export default QuizList
+export default Quizzes

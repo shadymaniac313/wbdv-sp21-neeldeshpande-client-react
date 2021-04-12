@@ -3,7 +3,7 @@ import {BrowserRouter as Router, Route} from "react-router-dom";
 import CourseManager from "./components/course-manager/course-manager";
 import Home from "./components/home";
 import Quiz from "./components/quizzes/Quiz";
-import QuizList from "./components/quizzes/QuizList";
+import Quizzes from "./components/quizzes/Quizzes";
 import React from "react";
 
 function App() {
@@ -14,7 +14,7 @@ function App() {
                     <Route path="/" exact={true} component={Home}/>
                     <Route path="/courses" component={CourseManager}/>
                     <Route path="/courses/:courseId/quizzes" exact={true}>
-                        <QuizList/>
+                        <Quizzes/>
                     </Route>
                     <Route path="/courses/:courseId/quizzes/:quizId" exact={true}>
                         <Quiz/>

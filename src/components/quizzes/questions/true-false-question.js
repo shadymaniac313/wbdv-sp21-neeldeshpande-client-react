@@ -51,6 +51,7 @@ const TrueFalseQuestion = ({question, grading}) => {
                                         setFalseSelected(false)
                                         setAnswer(true)
                                     }}
+                                    value={true}
                                     name={question._id}/>
                                 true
                             </div>
@@ -91,7 +92,7 @@ const TrueFalseQuestion = ({question, grading}) => {
                                         setTrueSelected(false)
                                         setAnswer(false)
                                     }}
-
+                                    value={false}
                                     name={question._id}/>
                                     false
                                 </label>

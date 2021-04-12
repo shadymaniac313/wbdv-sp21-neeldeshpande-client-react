@@ -10,6 +10,14 @@
     z-index: 1;
 }
 
+.quiz-list {
+    background-color: #3b5998;
+}
+
+.quiz-list .list-group-item {
+    margin: .5rem;
+}
+
 .quiz-content {
     padding-top: 50px;
 }

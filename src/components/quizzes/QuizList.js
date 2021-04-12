@@ -14,26 +14,31 @@ const QuizList = () => {
     })
 
     return (
-        <div>
+        <div className={"container-fluid"}>
             <h2>QuizList</h2>
-            <div className={"list-group-item"}>
+            <div className={"list-group quiz-list"}>
                 {
                     quizzes.map((quiz) => {
                         return (
-                            <div className={"row"}>
-                                <div className={"col-6"}>
-                                    <Link
-                                        to={`/courses/${courseId}/quizzes/${quiz._id}`}
-                                        className={"list-group-item"}
-                                    >
-                                        {quiz.title}
-                                    </Link>
-                                </div>
-                                <div className={"col pull-right"}>
-                                    <button className={"btn btn-primary"}>Start</button>
+                            <div className={"list-group-item"}>
+                                <div className={"row"}>
+                                    <div className={"col-8"}>
+                                        <Link
+                                            to={`/courses/${courseId}/quizzes/${quiz._id}`}
+                                        >
+                                            {quiz.title}
+                                        </Link>
+                                    </div>
+                                    <div className={"col"}>
+                                        <Link
+                                            to={`/courses/${courseId}/quizzes/${quiz._id}`}
+                                        >
+                                            <button className={"btn btn-primary float-right"}>Start</button>
+                                        </Link>
+
+                                    </div>
                                 </div>
                             </div>
-
                         )
                     })
                 }

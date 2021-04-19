@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
 
-const TrueFalseQuestion = ({question, grading}) => {
+const TrueFalseQuestion = ({question, grading, updateAnswerForQuestion}) => {
 
     const [answer, setAnswer] = useState(null)
     const [trueSelected, setTrueSelected] = useState(false)
@@ -47,6 +47,7 @@ const TrueFalseQuestion = ({question, grading}) => {
                                 <input
                                     type="radio"
                                     onClick={() => {
+                                        updateAnswerForQuestion(question.question, true)
                                         setTrueSelected(true)
                                         setFalseSelected(false)
                                         setAnswer(true)
@@ -88,6 +89,7 @@ const TrueFalseQuestion = ({question, grading}) => {
                                 <label><input
                                     type="radio"
                                     onClick={() => {
+                                        updateAnswerForQuestion(question.question, true)
                                         setFalseSelected(true)
                                         setTrueSelected(false)
                                         setAnswer(false)

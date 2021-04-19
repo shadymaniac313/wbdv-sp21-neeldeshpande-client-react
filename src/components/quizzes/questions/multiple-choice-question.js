@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 
-const MultipleChoiceQuestion = ({question, grading}) => {
+const MultipleChoiceQuestion = ({question, grading, updateAnswerForQuestion}) => {
 
     const [answer, setAnswer] = useState(null)
 
@@ -46,6 +46,7 @@ const MultipleChoiceQuestion = ({question, grading}) => {
                                                 type="radio"
                                                 name={question._id}
                                                 onClick={() => {
+                                                    updateAnswerForQuestion(question.question, choice)
                                                     setAnswer(choice)
                                                 }}
                                                 value={choice}

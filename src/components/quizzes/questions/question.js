@@ -2,7 +2,11 @@ import React, {useState} from "react";
 import TrueFalseQuestion from "./true-false-question";
 import MultipleChoiceQuestion from "./multiple-choice-question";
 
-const Question = ({question}) => {
+const Question = ({
+                      question,
+                      handleSubmitQuiz,
+                      updateAnswerForQuestion
+                  }) => {
 
     const [grading, setGrading] = useState(false)
 
@@ -13,6 +17,8 @@ const Question = ({question}) => {
                 <TrueFalseQuestion
                     question={question}
                     grading={grading}
+                    updateAnswerForQuestion={updateAnswerForQuestion}
+
                 />
             }
             {
@@ -20,12 +26,18 @@ const Question = ({question}) => {
                 <MultipleChoiceQuestion
                     question={question}
                     grading={grading}
+                    updateAnswerForQuestion = {updateAnswerForQuestion}
                 />
             }
             <button
                 onClick={() => setGrading(!grading)}
                 className={"btn btn-success btn-block"}
             >{grading ? "Hide Grade" : "Grade"}
+            </button>
+            <button
+                className={"btn btn-primary btn-block"}
+                onClick={() => handleSubmitQuiz()}
+            >Submit
             </button>
         </div>
     )

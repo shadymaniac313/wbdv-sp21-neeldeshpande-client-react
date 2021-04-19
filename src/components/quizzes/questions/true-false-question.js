@@ -47,7 +47,7 @@ const TrueFalseQuestion = ({question, grading, updateAnswerForQuestion}) => {
                                 <input
                                     type="radio"
                                     onClick={() => {
-                                        updateAnswerForQuestion(question.question, true)
+                                        updateAnswerForQuestion(question.question, "true")
                                         setTrueSelected(true)
                                         setFalseSelected(false)
                                         setAnswer(true)
@@ -89,7 +89,7 @@ const TrueFalseQuestion = ({question, grading, updateAnswerForQuestion}) => {
                                 <label><input
                                     type="radio"
                                     onClick={() => {
-                                        updateAnswerForQuestion(question.question, true)
+                                        updateAnswerForQuestion(question.question, "false")
                                         setFalseSelected(true)
                                         setTrueSelected(false)
                                         setAnswer(false)

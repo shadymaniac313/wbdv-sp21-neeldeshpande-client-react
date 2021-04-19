@@ -7,6 +7,7 @@ import quizService from "../../services/quizzes-service"
 const Quiz = () => {
     const {courseId, quizId} = useParams()
     const [questions, setQuestions] = useState([])
+    const [submitted, setSubmitted] = useState(false)
 
     useEffect(() => {
         questionService.findQuestionsForQuiz(quizId)
@@ -17,11 +18,13 @@ const Quiz = () => {
     }, [])
 
     const updateAnswerForQuestion = (question, choice) => {
-        setQuestions(questions.map(q => q.question === question ? {...q, answer: choice} : q ))
+        setQuestions(questions.map(q => q.question === question ? {...q, answer: choice} : q))
     }
 
     const handleSubmitQuiz = () => {
         quizService.submitQuiz(quizId, questions)
+        alert("Quiz Submitted Successfully!")
+        setSubmitted(true)
     }
 
     return (
@@ -35,11 +38,19 @@ const Quiz = () => {
                                 <Question
                                     question={question}
                                     handleSubmitQuiz={handleSubmitQuiz}
-                                    updateAnswerForQuestion = {updateAnswerForQuestion}
+                                    updateAnswerForQuestion={updateAnswerForQuestion}
+                                    submitted={submitted}
                                 />
                             </li>
                         )
                     }
+                    <li>
+                        <button
+                            className={"btn btn-primary btn-block"}
+                            onClick={() => handleSubmitQuiz()}
+                        >Submit
+                        </button>
+                    </li>
                 </ul>
             </div>
         </div>

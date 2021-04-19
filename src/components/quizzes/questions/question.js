@@ -4,7 +4,7 @@ import MultipleChoiceQuestion from "./multiple-choice-question";
 
 const Question = ({
                       question,
-                      handleSubmitQuiz,
+                      submitted,
                       updateAnswerForQuestion
                   }) => {
 
@@ -29,16 +29,14 @@ const Question = ({
                     updateAnswerForQuestion = {updateAnswerForQuestion}
                 />
             }
-            <button
-                onClick={() => setGrading(!grading)}
-                className={"btn btn-success btn-block"}
-            >{grading ? "Hide Grade" : "Grade"}
-            </button>
-            <button
-                className={"btn btn-primary btn-block"}
-                onClick={() => handleSubmitQuiz()}
-            >Submit
-            </button>
+            {
+                submitted &&
+                <button
+                    onClick={() => setGrading(!grading)}
+                    className={"btn btn-success btn-block"}
+                >{grading ? "Hide Grade" : "Grade"}
+                </button>
+            }
         </div>
     )
 }

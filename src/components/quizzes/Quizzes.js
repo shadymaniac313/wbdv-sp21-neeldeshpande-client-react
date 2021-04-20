@@ -11,7 +11,7 @@ const Quizzes = () => {
             .then((fetchedQuizzes) => {
                 setQuizzes(fetchedQuizzes)
             })
-    })
+    }, [])
 
     return (
         <div className={"container-fluid"}>

@@ -10,10 +10,7 @@ const findQuizById = (quizId) => {
         .then(response => response.json())
 }
 
-const submitQuiz = (quizId, questions) => {
-
-    console.log(JSON.stringify(questions), "stringified body")
-
+const submitQuiz = (quizId, questions) =>
     fetch(`${QUIZZES_URL}/${quizId}/attempts`, {
         method: 'POST',
         headers: {
@@ -22,7 +19,7 @@ const submitQuiz = (quizId, questions) => {
         },
         body: JSON.stringify(questions)
     }).then(response => response.json())
-}
+
 
 export default {
     findAllQuizzes,

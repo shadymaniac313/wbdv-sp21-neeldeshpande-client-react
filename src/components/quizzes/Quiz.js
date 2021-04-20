@@ -8,6 +8,7 @@ const Quiz = () => {
     const {courseId, quizId} = useParams()
     const [questions, setQuestions] = useState([])
     const [submitted, setSubmitted] = useState(false)
+    const [score, setScore] = useState(-1)
 
     useEffect(() => {
         questionService.findQuestionsForQuiz(quizId)
@@ -23,7 +24,10 @@ const Quiz = () => {
 
     const handleSubmitQuiz = () => {
         quizService.submitQuiz(quizId, questions)
-        alert("Quiz Submitted Successfully!")
+            .then(scoredQuiz => {
+                console.log(scoredQuiz, "scoredQuiz")
+                setScore(scoredQuiz.score)
+            })
         setSubmitted(true)
     }
 
@@ -48,7 +52,7 @@ const Quiz = () => {
                         <button
                             className={"btn btn-primary btn-block"}
                             onClick={() => handleSubmitQuiz()}
-                        >Submit
+                        >Submit{submitted ? " Again, Previous Score: " + score : ""}
                         </button>
                     </li>
                 </ul>
